@@ -13,8 +13,8 @@ export function addVehicleCategoryPages({root,output,siteUrl}) {
   const urls=[];
   for(const [kind,label] of categories) {
     const canonical=siteUrl+'/'+kind+'-parking'+suffix;
-    const title=label+'の駐輪場｜料金・利用条件を探す｜トメスポ';
-    const description=label+'の駐輪場を検索。施設ごとの排気量・車両区分、一時利用・定期利用の料金、利用条件、公式案内を確認できます。';
+    const title=label+'の駐車場・駐輪場を探す｜トメスポ';
+    const description=label+'の駐車場を地図で検索。一時利用・月極の料金や、施設ごとの排気量・車両サイズの利用条件、公式案内を確認できます。';
     const places=parking.places.filter(p=>p.displayEligible!==false&&!p.discoveryOnly&&(!p.canonicalFacilityId||p.canonicalFacilityId===p.id)&&vehicleCategories.combined(vehicles.reviewedProfiles?.[p.id]||vehicles.profiles[p.id]).admissionStatus==='confirmed');
     const wards=[...new Set(places.map(p=>p.ward))].sort((a,b)=>a.localeCompare(b,'ja'));
     const groups=wards.map((ward,i)=>`<section id="area-${i}"><h2>${escape(ward)}</h2><ul>${places.filter(p=>p.ward===ward).map(p=>`<li data-place="${escape(p.id)}"><a href="${fs.existsSync(path.join(output,'parking',p.id+'.html'))?'/parking/'+escape(p.id)+'.html#'+kind:'/?vehicle='+kind+'&amp;place='+encodeURIComponent(p.id)}">${escape(p.name)}</a><p>${escape(p.address)}</p><a href="/?vehicle=${kind}&amp;place=${encodeURIComponent(p.id)}">${label}の料金・利用条件を地図で確認</a></li>`).join('')}</ul></section>`).join('');

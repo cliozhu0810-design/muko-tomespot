@@ -251,6 +251,13 @@ test('static build preserves data and all local HTML links resolve on Pages',()=
     assert.ok(!kickboard.match(/<title>[^<]*東京/));
     assert.match(kickboard,/目黒駅周辺のマイ電動キックボード駐輪場を地図で検索/);
     assert.match(kickboard,/class="kickboard-guide"/);
+    const motorcycle=fs.readFileSync(path.join(out,'motorcycle-parking.html'),'utf8');
+    assert.match(motorcycle,/class="workspace"/);
+    assert.match(motorcycle,/window.TOMESPOT_ENTRY=\{"language":"ja","vehicle":"motorcycle"/);
+    assert.match(motorcycle,/<title>原付・バイクの駐車場・駐輪場を探す｜トメスポ<\/title>/);
+    assert.match(motorcycle,/rel="canonical" href="https:\/\/muko-tomespot.pages.dev\/motorcycle-parking"/);
+    assert.match(motorcycle,/<summary>原付・バイクの駐車場一覧・利用ガイド<\/summary>/);
+    assert.match(motorcycle,/すべての排気量のバイクが利用できるわけではありません/);
     const cityReports=['kawaguchi','toshima','kanto','motorcycle'].map(city=>JSON.parse(fs.readFileSync(path.join(root,'source/public/'+city+'-review.json'),'utf8')));
     const expectedFacilities=new Set(['fk-ikebukuro2','seibu-minami-ikebukuro',...fs.readdirSync(path.join(root,'source/public/parking')).map(f=>f.replace(/\.html$/,'')),...cityReports.flatMap(r=>r.records.map(x=>x.id))]);
     const coverage=JSON.parse(fs.readFileSync(path.join(out,'area-coverage.json'),'utf8'));

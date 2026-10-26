@@ -11,7 +11,7 @@ import {addKantoPages} from './kanto-pages.mjs';
 import {addRegionalMotorcyclePages} from './regional-motorcycle-pages.mjs';
 import {addAreaPages} from './area-pages.mjs';
 import {addVehicleCategoryPages} from './vehicle-category-pages.mjs';
-import {writeKickboardMap} from './kickboard-map-page.mjs';
+import {writeKickboardMap,writeMotorcycleMap} from './kickboard-map-page.mjs';
 export const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = p => fs.readFileSync(path.join(root,p), 'utf8');
 const write = (p, value) => {fs.mkdirSync(path.dirname(p), {recursive:true});fs.writeFileSync(p,value);};
@@ -232,6 +232,7 @@ export function buildFrontend({apiBase,siteUrl,output=path.join(root,'dist')}={}
   function cleanLocationProse(dir){for(const item of fs.readdirSync(dir,{withFileTypes:true})){const file=path.join(dir,item.name);if(item.isDirectory()){cleanLocationProse(file);continue;}if(!file.endsWith('.html'))continue;const before=fs.readFileSync(file,'utf8'),after=before.replace(/（[^（）]*(?:入口位置|バイク入口)[^（）]*(?:確認中|未確認)[^（）]*）/g,'').replace(/<div class="source-stamp">[^<]*<\/div>/g,'').replace(/(?:<br>\s*)?<strong>[^<]*(?:正確な入口|入口位置|施設の参考位置)[^<]*<\/strong>/g,'').replace(/<p(?:\s[^>]*)?>[^<]*(?:正確な入口|入口位置|施設の参考位置)[^<]*<\/p>/g,'');if(after!==before)fs.writeFileSync(file,after);}}
   cleanLocationProse(output);
   writeKickboardMap({output,siteUrl,...searchPages['kickboard-parking.html']});
+  writeMotorcycleMap({output,siteUrl});
   return output;
 }
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)) {
