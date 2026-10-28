@@ -53,6 +53,9 @@ function profileDetailHtml(p,{compact=false}={}){if(p.discoveryOnly)return disco
 let locale='ja',messages={},dataMessages={},dataset=null;
 try{const saved=localStorage.getItem('tomespot:language');if(['ja','zh-Hans','zh-Hant','en'].includes(saved))locale=saved;}catch{}
 if(['ja','zh-Hans','zh-Hant','en'].includes(entryDefaults?.language))locale=entryDefaults.language;
+// Explicit inbound link language takes precedence over saved preferences.
+const inboundLanguage=new URLSearchParams(location.search).get('lang');
+if(inboundLanguage!==null){const code=inboundLanguage.toLowerCase();locale=/^zh-(hant|tw|hk|mo)/.test(code)?'zh-Hant':code==='zh'||code.startsWith('zh-')?'zh-Hans':code==='en'||code.startsWith('en-')?'en':'ja';}
 function t(key,values={}){let text=messages[key]?.[locale]||messages[key]?.ja||key;for(const [k,v] of Object.entries(values))text=text.replaceAll('{'+k+'}',String(v));return text;}
 function dt(text){return dataMessages[text]?.[locale]??String(text??'');}
 function applyLanguage(){document.documentElement.lang=locale;document.title=locale==='ja'&&entryDefaults?.title?entryDefaults.title:t('title');document.querySelector('meta[name="description"]').content=locale==='ja'&&entryDefaults?.description?entryDefaults.description:t('description');$('language').value=locale;
