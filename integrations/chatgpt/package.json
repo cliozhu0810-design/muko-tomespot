@@ -1,0 +1,25 @@
+{
+  "name": "tomespot-readonly-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "start": "node src/local.mjs",
+    "test": "node --test test/*.test.mjs",
+    "demo": "node scripts/demo.mjs",
+    "refresh": "node scripts/snapshot.mjs",
+    "dev:worker": "wrangler dev --port 8788",
+    "deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.2",
+    "zod": "3.25.76"
+  },
+  "devDependencies": {
+    "wrangler": "4.153.0",
+    "yaml": "2.8.1"
+  }
+}

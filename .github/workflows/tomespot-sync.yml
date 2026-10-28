@@ -1,0 +1,62 @@
+# Install at REPOSITORY ROOT: .github/workflows/tomespot-sync.yml
+# Copy this package into integrations/chatgpt/ before enabling.
+name: Sync Tomespot public parking data
+
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+    inputs:
+      force_deploy:
+        description: Deploy even if source data is unchanged (first deployment or code update)
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tomespot-mcp-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    if: github.repository == 'cliozhu0810-design/muko-tomespot'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: integrations/chatgpt
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+      - name: Install pinned dependencies
+        run: |
+          npm install --global pnpm@11.25.0
+          pnpm install --frozen-lockfile
+      - name: Fetch public source and compare deployed fingerprint
+        id: sync
+        env:
+          TOMESPOT_MCP_URL: ${{ vars.TOMESPOT_MCP_URL }}
+          FORCE_DEPLOY: ${{ inputs.force_deploy && 'true' || 'false' }}
+        run: node scripts/sync.mjs
+      - name: Test candidate snapshot
+        if: steps.sync.outputs.changed == 'true'
+        run: node --test test/*.test.mjs
+      - name: Validate Worker bundle
+        if: steps.sync.outputs.changed == 'true'
+        env:
+          WRANGLER_SEND_METRICS: 'false'
+        run: pnpm exec wrangler deploy --dry-run
+      - name: Deploy validated candidate
+        if: steps.sync.outputs.changed == 'true'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          WRANGLER_SEND_METRICS: 'false'
+        run: |
+          test -n "$CLOUDFLARE_API_TOKEN"
+          test -n "$CLOUDFLARE_ACCOUNT_ID"
+          pnpm exec wrangler deploy

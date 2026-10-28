@@ -1,3 +1,4 @@
+import {handleMcpFeedback} from './mcp-feedback.mjs';
 // This module runs only in the Edge Function, never in a browser bundle.
 export function createStorage(env, fetcher=fetch) {
   const serviceHeaders={apikey:env.SUPABASE_SERVICE_ROLE_KEY,Authorization:'Bearer '+env.SUPABASE_SERVICE_ROLE_KEY};
@@ -145,4 +146,4 @@ moderate:(()=>{async function PATCH(request        ,{params}                    
 
 return {PATCH};})()};}
 export function handle(request,settings){const env={...settings,...createStorage(settings)};return dispatch(request,env,makeRoutes(env));}
-if(typeof Deno!=='undefined'){const names=['SUPABASE_URL','SUPABASE_ANON_KEY','SUPABASE_SERVICE_ROLE_KEY','ADMIN_EMAIL','FRONTEND_ORIGIN','COMMENT_HASH_SALT'];const settings=Object.fromEntries(names.map(k=>[k,Deno.env.get(k)]));Deno.serve(request=>handle(request,settings));}
+if(typeof Deno!=='undefined'){const names=['SUPABASE_URL','SUPABASE_ANON_KEY','SUPABASE_SERVICE_ROLE_KEY','ADMIN_EMAIL','FRONTEND_ORIGIN','COMMENT_HASH_SALT','MCP_FEEDBACK_KEY'];const settings=Object.fromEntries(names.map(k=>[k,Deno.env.get(k)]));Deno.serve(request=>handleMcpFeedback(request,settings,handle));}

@@ -1,0 +1,17 @@
+{
+  "checkedAt": "2026-10-28T08:45:02.405Z",
+  "cloudflareAccount": "cliozhu0810@gmail.com",
+  "mcpUrl": "https://tomespot-readonly-mcp.cliozhu0810.workers.dev/mcp",
+  "versionId": "adcc1af5-2ae1-43af-b450-b4f80a617198",
+  "publicQueryVerified": true,
+  "feedbackSubmissionEnabled": false,
+  "hourlySyncEnabled": false,
+  "chatgptInstalled": false,
+  "pending": [
+    "Personal GitHub/Supabase project access authorization",
+    "Deploy Supabase feedback bridge and configure signing secret",
+    "Publish repository workflow and configure deployment secrets",
+    "Connect personal ChatGPT to MCP"
+  ],
+  "publicReviewsVerified": true
+}

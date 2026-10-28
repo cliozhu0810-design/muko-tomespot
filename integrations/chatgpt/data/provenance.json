@@ -1,0 +1,21 @@
+{
+  "retrievedAt": "2026-10-28T08:04:48.878Z",
+  "origin": "https://muko-tomespot.pages.dev",
+  "sourceFingerprint": "9a00a57f4c15ebbb57075393496b2876c719b6f9d0906b81a97ed1f78eb4a979",
+  "sha256": {
+    "parking.json": "acc0a7c91c2dbdbc3d3ff839585f7bf248cc91e570a2419572d60006dbae09b2",
+    "vehicle-data.json": "753b0817e342d92303dd113d5a1090a3fc7f35812ad3de61c9aa8e93e893cf4c",
+    "vehicle-categories.js": "9190ec6712755f0b0c9c42fc04a0cb992ef2bfe4aff67d20124b431edf982cca",
+    "station-search.js": "93f33bef087a05ac23915c30c82e0f760a0e62864fbebcd3b88d494404d188d9",
+    "comments.js": "a9747e85332965737887639651c9b31359314011f3605e93f1e500ebf4ab45ce"
+  },
+  "sourceUpdated": "2026-10-22",
+  "vehicleChecked": "2026-10-22",
+  "places": 2114,
+  "coverage": [
+    "東京都",
+    "神奈川県",
+    "埼玉県",
+    "千葉県"
+  ]
+}

@@ -125,6 +125,7 @@ export function buildBackend() {
 }
 export function buildSupabaseBackend() {
   const dest=path.join(root,'supabase/functions/tomespot');
+  for(const file of ['mcp-feedback.mjs','feedback-crypto.mjs'])write(path.join(dest,file),read('supabase/'+file));
   let common=read('source/comments.ts').replace(/import parking from .*;\r?\n/,'const parking = PARKING;\n')
     .replace("return request.headers.get('origin')===new URL(request.url).origin;", "const origin=request.headers.get('origin');return origin===env.FRONTEND_ORIGIN;");
   const paths={comments:'api/comments',photos:'api/photos/[id]',session:'api/admin/session',queue:'api/admin/comments',moderate:'api/admin/comments/[id]'};
@@ -142,7 +143,7 @@ export function buildSupabaseBackend() {
     .replace("else if ((path === '/admin' || path === '/admin/') && request.method === 'GET') result = routes.admin.GET();", "else if (path === '/admin' || path === '/admin/') result = new Response('Use the administrator page on GitHub Pages.', {status:404});")
     .replace("else if (['/admin.js','/comments.css','/locales.json'].includes(path) && request.method === 'GET') result = await env.ASSETS.fetch(request);",'');
   const places=JSON.parse(read('source/public/parking.json')).places.map(p=>({id:p.id,name:p.name}));
-  const source=read('supabase/adapter.mjs')+'\nconst verifyAdmin=verifySupabaseAdmin;\n'+gateway+`\nconst PARKING=${JSON.stringify({places})};\nfunction makeRoutes(env){${tsBody(common)}\nreturn {${handlers.join(',\n')}};}\nexport function handle(request,settings){const env={...settings,...createStorage(settings)};return dispatch(request,env,makeRoutes(env));}\nif(typeof Deno!=='undefined'){const names=['SUPABASE_URL','SUPABASE_ANON_KEY','SUPABASE_SERVICE_ROLE_KEY','ADMIN_EMAIL','FRONTEND_ORIGIN','COMMENT_HASH_SALT'];const settings=Object.fromEntries(names.map(k=>[k,Deno.env.get(k)]));Deno.serve(request=>handle(request,settings));}\n`;
+  const source="import {handleMcpFeedback} from './mcp-feedback.mjs';\n"+read('supabase/adapter.mjs')+'\nconst verifyAdmin=verifySupabaseAdmin;\n'+gateway+`\nconst PARKING=${JSON.stringify({places})};\nfunction makeRoutes(env){${tsBody(common)}\nreturn {${handlers.join(',\n')}};}\nexport function handle(request,settings){const env={...settings,...createStorage(settings)};return dispatch(request,env,makeRoutes(env));}\nif(typeof Deno!=='undefined'){const names=['SUPABASE_URL','SUPABASE_ANON_KEY','SUPABASE_SERVICE_ROLE_KEY','ADMIN_EMAIL','FRONTEND_ORIGIN','COMMENT_HASH_SALT','MCP_FEEDBACK_KEY'];const settings=Object.fromEntries(names.map(k=>[k,Deno.env.get(k)]));Deno.serve(request=>handleMcpFeedback(request,settings,handle));}\n`;
   write(path.join(dest,'index.ts'),source);
   return dest;
 }
