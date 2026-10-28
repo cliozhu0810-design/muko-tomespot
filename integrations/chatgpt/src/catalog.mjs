@@ -2,7 +2,7 @@ import catalog from '../data/catalog.json' with {type:'json'};
 export {catalog};
 export const labels={bicycle:'自転車',privateElectricScooter:'電動キックボード',motorcycle:'原付・バイク'};
 export const notice='リアルタイムの空き状況は提供していません。料金・車両条件は原資料の区分・期間・資格ごとに比較し、最新情報は公式案内で確認してください。未確認は利用可能を意味しません。';
-const norm=s=>String(s||'').normalize('NFKC').toLowerCase().replace(/[\s・･ー\-’']/g,'').replace(/[ァ-ヶ]/g,c=>String.fromCharCode(c.charCodeAt(0)-96)).replace(/(?:station|駅|えき)$/,'');
+const norm=s=>String(s||'').normalize('NFKC').toLowerCase().replace(/桥/g,'橋').replace(/[\s・･ー\-’']/g,'').replace(/[ァ-ヶ]/g,c=>String.fromCharCode(c.charCodeAt(0)-96)).replace(/(?:station|駅|站|えき)$/,'');
 export function distance(a,b){const rad=Math.PI/180,dy=(b.lat-a.lat)*rad,dx=(b.lng-a.lng)*rad;return 6371000*2*Math.asin(Math.min(1,Math.sqrt(Math.sin(dy/2)**2+Math.cos(a.lat*rad)*Math.cos(b.lat*rad)*Math.sin(dx/2)**2)));}
 const safeUrl=s=>{try{const u=new URL(s);return u.protocol==='https:'&&!u.username&&!u.password?u.href:null;}catch{return null;}};
 function links(p,vehicle){
