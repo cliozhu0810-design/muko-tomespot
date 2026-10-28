@@ -5,6 +5,13 @@ import {StreamableHTTPClientTransport} from '@modelcontextprotocol/sdk/client/st
 import {handle} from '../src/server.mjs';
 import {catalog,detail,search} from '../src/catalog.mjs';
 async function client(){const c=new Client({name:'integration-test',version:'1.0.0'});await c.connect(new StreamableHTTPClientTransport(new URL('http://localhost/mcp'),{fetch:(url,init)=>handle(new Request(url,init))}));return c;}
+
+test('Chinese station spelling preserves Shimbashi nearby results',()=>{
+  const expected=search({query:'新橋駅',vehicle:'motorcycle'});
+  const actual=search({query:'新桥站',vehicle:'motorcycle'});
+  assert.ok(expected.results.length>0);
+  assert.deepEqual(actual.results.map(p=>[p.id,p.distanceM]),expected.results.map(p=>[p.id,p.distanceM]));
+});
 test('official MCP client initializes, lists and calls both read-only tools',async()=>{
   const c=await client();try{
     const tools=await c.listTools();assert.deepEqual(tools.tools.map(t=>t.name),['search_parking','get_parking','get_parking_reviews','prepare_parking_feedback']);
