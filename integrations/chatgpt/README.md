@@ -1,6 +1,6 @@
 # Tomespot ChatGPT 接入：设施、公开评价与反馈
 
-2026-10-28 已部署个人 Cloudflare MCP 接口及 Supabase 反馈入口。公网 MCP：https://tomespot-readonly-mcp.cliozhu0810.workers.dev/mcp 。个人 ChatGPT 安装单独进行，尚未提交公开目录。现有地图规范网址与车辆入口不变。新增公开评价读取，以及客户本人确认后送入原评论审核队列的反馈流程，见 [评价与反馈部署说明](deployment/COMMENTS.md)。
+2026-10-28 已部署个人 Cloudflare MCP 接口及 Supabase 反馈入口。公网 MCP：https://tomespot-readonly-mcp.cliozhu0810.workers.dev/mcp 。已安装到个人 ChatGPT 并通过实际日语查询验收，尚未提交公开目录。现有地图规范网址与车辆入口不变。新增公开评价读取，以及客户本人确认后送入原评论审核队列的反馈流程，见 [评价与反馈部署说明](deployment/COMMENTS.md)。
 
 ## 方案与官方依据
 

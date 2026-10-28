@@ -1,0 +1,93 @@
+{
+  "date": "2026-10-28",
+  "status": "production_deployed_and_personal_chatgpt_verified",
+  "tests": {
+    "passed": 26,
+    "failed": 0,
+    "command": "node --test test/*.test.mjs"
+  },
+  "mcpClient": "Official @modelcontextprotocol/sdk 1.32.2 StreamableHTTPClientTransport",
+  "transportsVerified": [
+    "in-process Web Request/Response",
+    "Node HTTP 127.0.0.1:8787",
+    "Cloudflare workerd local HTTP 127.0.0.1:8788",
+    "Public Cloudflare HTTPS MCP",
+    "Personal ChatGPT custom MCP"
+  ],
+  "workerDryRun": {
+    "passed": true,
+    "uploadKiB": 9767.36,
+    "gzipKiB": 528.4,
+    "bindings": []
+  },
+  "hourlySync": {
+    "implemented": true,
+    "enabledOnline": true,
+    "scheduler": "GitHub Actions",
+    "interval": "hourly, minute 17",
+    "deployOnlyOnSourceChange": true
+  },
+  "realDataExamples": [
+    {
+      "query": "横浜駅",
+      "vehicle": "bicycle",
+      "usage": "temporary",
+      "matches": 2
+    },
+    {
+      "query": "西東京市",
+      "vehicle": "privateElectricScooter",
+      "matches": 7
+    },
+    {
+      "query": "目黒駅",
+      "vehicle": "privateElectricScooter",
+      "matches": 0
+    },
+    {
+      "query": "西川口駅",
+      "vehicle": "motorcycle",
+      "engineCC": 750,
+      "matches": 5,
+      "fit": "unverified; matches are class-specific candidates, not verified 750cc recommendations"
+    },
+    {
+      "query": "大阪駅",
+      "vehicle": "bicycle",
+      "matches": 0
+    }
+  ],
+  "browserDemo": {
+    "passed": true,
+    "language": "ja",
+    "verified": "Yokohama station search returned real facility cards, original fees, translated usage labels and Tomespot/Google Maps links; public review empty state and signed feedback preview with simulated submission"
+  },
+  "productionChanges": true,
+  "remaining": [
+    "Optional public directory packaging, policy readiness and submission"
+  ],
+  "commentsFeedback": {
+    "implemented": true,
+    "deployed": true,
+    "publicReadChecks": "Existing public approved-only endpoint returned HTTP 200",
+    "backendRegressionTestsPassed": 7,
+    "realGeneratedHandlerFlow": "passed with simulated database and network only",
+    "productionCommentsWritten": 0,
+    "browserDemo": "Public reviews loaded; explicit confirmation succeeded in demo_only mode",
+    "submissionMode": "Customer browser confirmation -> existing pending queue -> existing moderation",
+    "productionChecks": "Approved GET 200; signed invalid facility rejected 400; unauthenticated admin rejected 403; deployed source matches candidate"
+  },
+  "inlineCommentsUI": {
+    "verified": true,
+    "autoLoadReviews": true,
+    "inlineSend": true,
+    "separateConfirmationPageRequired": false,
+    "productionCommentsWritten": 0
+  },
+  "chatgpt": {
+    "installed": true,
+    "naturalLanguageVerified": true,
+    "query": "横浜駅、自転車、一時利用、公開口コミ",
+    "productionCommentsWritten": 0
+  }
+}

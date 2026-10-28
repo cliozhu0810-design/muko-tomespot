@@ -1,17 +1,20 @@
 {
-  "checkedAt": "2026-10-28T08:45:02.405Z",
+  "checkedAt": "2026-10-28T09:42:38.625Z",
   "cloudflareAccount": "cliozhu0810@gmail.com",
+  "repository": "https://github.com/cliozhu0810-design/muko-tomespot",
   "mcpUrl": "https://tomespot-readonly-mcp.cliozhu0810.workers.dev/mcp",
-  "versionId": "adcc1af5-2ae1-43af-b450-b4f80a617198",
   "publicQueryVerified": true,
-  "feedbackSubmissionEnabled": false,
-  "hourlySyncEnabled": false,
-  "chatgptInstalled": false,
-  "pending": [
-    "Personal GitHub/Supabase project access authorization",
-    "Deploy Supabase feedback bridge and configure signing secret",
-    "Publish repository workflow and configure deployment secrets",
-    "Connect personal ChatGPT to MCP"
-  ],
-  "publicReviewsVerified": true
+  "publicReviewsVerified": true,
+  "feedbackSubmissionEnabled": true,
+  "hourlySyncEnabled": true,
+  "schedule": "17 * * * *",
+  "chatgptInstalled": true,
+  "chatgptPluginUrl": "https://chatgpt.com/plugins/plugin_asdk_app_6ae1c2ea2d348191922b1558f4ffef10",
+  "chatgptNaturalLanguageVerified": true,
+  "chatgptAcceptance": "Yokohama bicycle temporary search: two facilities with original tariffs and maps; Bay Quarter public approved reviews: zero; no submission",
+  "workflowForceDeployRun": "https://github.com/cliozhu0810-design/muko-tomespot/actions/runs/40664798171",
+  "workflowUnchangedRun": "https://github.com/cliozhu0810-design/muko-tomespot/actions/runs/40665271730",
+  "productionCommentsWritten": 0,
+  "publicDirectorySubmitted": false,
+  "pending": []
 }
