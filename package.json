@@ -7,7 +7,7 @@
   },
   "scripts": {
     "build": "node scripts/build.mjs",
-    "test": "node --test scripts/migration.test.mjs scripts/supabase.test.mjs scripts/scooter-screening.test.mjs scripts/motorcycle-scope-audit.test.mjs scripts/vehicle-categories.test.mjs scripts/discovery-listings.test.mjs scripts/discovery-confirmations.test.mjs",
+    "test": "node --test scripts/migration.test.mjs scripts/supabase.test.mjs scripts/scooter-screening.test.mjs scripts/motorcycle-scope-audit.test.mjs scripts/vehicle-categories.test.mjs scripts/discovery-listings.test.mjs scripts/discovery-confirmations.test.mjs scripts/national-discoveries.test.mjs",
     "audit:motorcycle": "node scripts/motorcycle-scope-audit.mjs",
     "classify:motorcycle": "node scripts/motorcycle-classification.mjs"
   }

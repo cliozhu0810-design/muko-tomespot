@@ -1,15 +1,15 @@
 {
   "title": {
-    "ja": "トメスポ｜東京の電動キックボード・自転車・バイク駐輪場",
-    "zh-Hans": "Tomespot｜东京、埼玉、千叶、神奈川停车地图",
-    "zh-Hant": "Tomespot｜東京、埼玉、千葉、神奈川停車地圖",
-    "en": "Tomespot | Tokyo, Saitama, Chiba and Kanagawa parking"
+    "ja": "トメスポ｜全国の自転車・原付・バイク駐輪場",
+    "zh-Hans": "Tomespot｜日本全国停车地图",
+    "zh-Hant": "Tomespot｜日本全國停車地圖",
+    "en": "Tomespot | Parking across Japan"
   },
   "description": {
-    "ja": "トメスポ（Tomespot）は、東京で電動キックボード・自転車・バイクを停める場所を探せる駐輪場マップです。一時利用・月極・定期利用の料金や利用条件を比較し、目的地近くの駐車場を探せます。 横浜市神奈川区の自転車・バイク駐輪場も一部掲載しています。",
-    "zh-Hans": "查找东京、埼玉县、千叶县、神奈川县已收录的电动滑板车、自行车和摩托车停车场，按场所确认50cc、125cc及大型摩托车条件、临停和定期费用。",
-    "zh-Hant": "尋找東京、埼玉縣、千葉縣、神奈川縣已收錄的電動滑板車、自行車及機車停車場，依場所確認50cc、125cc及大型機車條件、臨停和定期費用。",
-    "en": "Find listed scooter, bicycle and motorcycle parking in Tokyo, Saitama, Chiba and Kanagawa. Check facility-specific displacement limits, short-stay fees and permit conditions."
+    "ja": "全国の駐輪場を名称・位置から探せます。未確認の候補は利用可否・料金・入口が未確認であることを表示しています。",
+    "zh-Hans": "按名称和地图位置查找日本全国停车场候选，未核实地点明确标记，车型、费用和入口须进一步确认。",
+    "zh-Hant": "依名稱和地圖位置尋找日本全國停車場候選，未核實地點明確標示，車種、費用及入口仍待確認。",
+    "en": "Find parking candidates across Japan by name and map location. Unverified listings have unconfirmed vehicle access, fees and entrances."
   },
   "home": {
     "ja": "トメスポ ホーム",
@@ -18,10 +18,10 @@
     "zh-Hant": "トメスポ 首頁"
   },
   "edition": {
-    "ja": "東京・横浜市神奈川区",
-    "zh-Hans": "东京·横滨市神奈川区",
-    "zh-Hant": "東京·橫濱市神奈川區",
-    "en": "Tokyo · Yokohama Kanagawa Ward"
+    "ja": "全国",
+    "zh-Hans": "日本全国",
+    "zh-Hant": "日本全國",
+    "en": "Japan"
   },
   "sources": {
     "ja": "データについて",
@@ -48,10 +48,10 @@
     "zh-Hant": "騎到這裡，\\n安心停下來。"
   },
   "subtitle": {
-    "ja": "東京のマイ電動キックボード駐輪場マップ",
-    "zh-Hans": "东京私人电动滑板车停车地图",
-    "en": "Parking for your own electric scooter in Tokyo",
-    "zh-Hant": "東京私人電動滑板車停車地圖"
+    "ja": "全国の駐輪場を地図で探す",
+    "zh-Hans": "在地图上查找日本全国停车场",
+    "zh-Hant": "在地圖上尋找日本全國停車場",
+    "en": "Find parking across Japan"
   },
   "filters": {
     "ja": "駐輪場を絞り込む",
@@ -132,10 +132,10 @@
     "en": "No registration required"
   },
   "map": {
-    "ja": "東京の駐輪場マップ",
-    "zh-Hans": "东京停车地图",
-    "en": "Tokyo parking map",
-    "zh-Hant": "東京停車地圖"
+    "ja": "全国の駐輪場マップ",
+    "zh-Hans": "日本全国停车地图",
+    "zh-Hant": "日本全國停車地圖",
+    "en": "Parking map across Japan"
   },
   "loading": {
     "ja": "読み込み中…",
@@ -168,10 +168,10 @@
     "en": "Permit / conditional"
   },
   "pending": {
-    "ja": "要確認",
-    "zh-Hans": "待确认",
-    "en": "Unverified",
-    "zh-Hant": "待確認"
+    "ja": "未確認",
+    "zh-Hans": "未核实",
+    "zh-Hant": "未核實",
+    "en": "Unverified"
   },
   "mapNote": {
     "ja": "利用可能でも空きがあるとは限りません。出発前に公式の利用条件をご確認ください。",
@@ -1336,5 +1336,35 @@
     "zh-Hans": "例如：池袋站附近",
     "zh-Hant": "例如：池袋站附近",
     "en": "e.g. around Ikebukuro Station"
+  },
+  "discoveryPositionNote": {
+    "ja": "利用可否・料金・入口は未確認です。",
+    "zh-Hans": "准入、费用和入口尚未核实。",
+    "zh-Hant": "准入、費用和入口尚未核實。",
+    "en": "Access, fees and entrance are unverified."
+  },
+  "mapListings": {
+    "ja": "{n}件表示 · 未確認{pending}件",
+    "zh-Hans": "显示{n}处 · 未核实{pending}处",
+    "zh-Hant": "顯示{n}處 · 未核實{pending}處",
+    "en": "{n} locations · {pending} unverified"
+  },
+  "unnamedMotorcycleParking": {
+    "ja": "バイク駐車場（名称未確認）",
+    "zh-Hans": "摩托车停车点（名称未确认）",
+    "zh-Hant": "機車停車點（名稱未確認）",
+    "en": "Motorcycle parking (name unconfirmed)"
+  },
+  "unnamedBicycleParking": {
+    "ja": "駐輪場（名称未確認）",
+    "zh-Hans": "自行车停车点（名称未确认）",
+    "zh-Hant": "自行車停車點（名稱未確認）",
+    "en": "Bicycle parking (name unconfirmed)"
+  },
+  "osmListing": {
+    "ja": "OpenStreetMapで見る",
+    "zh-Hans": "在 OpenStreetMap 查看",
+    "zh-Hant": "在 OpenStreetMap 查看",
+    "en": "View on OpenStreetMap"
   }
 }

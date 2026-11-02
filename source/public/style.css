@@ -42,6 +42,7 @@ html[lang="en"] .intro h1{font-size:30px}html[lang="en"] .detail dl{grid-templat
 .detail-disclaimer{margin-top:24px;padding-top:12px;border-top:1px solid var(--line);font-size:10px;line-height:1.6;color:var(--muted)}.detail-disclaimer summary{cursor:pointer}.detail-disclaimer p{margin:8px 0 0}
 
 .discovery-card .card-open{display:block;cursor:default}.discovery-map-link{display:inline-flex;margin-top:10px;font-size:12px;font-weight:600;color:var(--green);text-decoration:none}.discovery-map-link:hover{text-decoration:underline}
+.discovery-name{font:inherit;font-weight:inherit;color:inherit;text-align:left;background:none;border:0;padding:0;cursor:pointer}.discovery-name:hover{text-decoration:underline}.discovery-position-note{font-size:12px;line-height:1.6;color:var(--muted);margin:8px 0}
 
 /* Compact search controls leave the results as the main mobile surface. */
 .map-actions #open-comments{width:auto;padding:0 14px;font-size:12px;white-space:nowrap;border-radius:9px}
