@@ -27,6 +27,12 @@ function writeCategoryMap({output,siteUrl,title,description,slug,vehicle,summary
     .replace(/<meta property="og:url"[^>]*>/,`<meta property="og:url" content="${canonical}">`)
     .replace('<script src="config.js">',`<script>window.TOMESPOT_ENTRY=${JSON.stringify(entry).replaceAll('<','\\u003c')};</script><script src="config.js">`)
     .replace('</body>',`<details class="kickboard-guide"><summary>${summary}</summary>${intro}${guide.replace(/<h1>(.*?)<\/h1>/,'<h2>$1</h2>').replaceAll('東京の電動キックボード駐輪場','電動キックボードの駐輪場')}</details></body>`);
+  if(vehicle==='motorcycle') {
+    const heading='<h1 class="motorcycle-heading"><span class="heading-ja">原付・バイクの駐車場・駐輪場</span><span class="heading-zh-Hans">原付与摩托车停车场</span><span class="heading-zh-Hant">原付與機車停車場</span><span class="heading-en">Moped and motorcycle parking</span></h1>';
+    if(!html.includes('<section class="filters"'))throw Error('Missing map filters for motorcycle heading');
+    html=html.replace(/(<section class="filters"[^>]*>)/,'$1'+heading)
+      .replace('</head>','<style>.motorcycle-heading{grid-column:1/-1;margin:0 0 8px;font-size:18px;line-height:1.5}.motorcycle-heading span{display:none}html[lang="ja"] .heading-ja,html[lang="zh-Hans"] .heading-zh-Hans,html[lang="zh-Hant"] .heading-zh-Hant,html[lang="en"] .heading-en{display:inline}</style></head>');
+  }
   const schema={'@context':'https://schema.org','@type':'CollectionPage',name:title,description,url:canonical,inLanguage:'ja',isPartOf:{'@id':siteUrl+'/#website'}};
   html=html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g,'')
     .replace('</head>',`<script type="application/ld+json">${JSON.stringify(schema).replaceAll('<','\\u003c')}</script><style>.kickboard-guide{padding:24px;max-width:1100px;margin:auto;line-height:1.8}.kickboard-guide summary{cursor:pointer;font-weight:600}.kickboard-guide h2{margin-top:24px}.kickboard-guide nav{display:flex;flex-wrap:wrap;gap:12px}.kickboard-guide li{margin-bottom:12px}</style></head>`);
