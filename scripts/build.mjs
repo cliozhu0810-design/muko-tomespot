@@ -11,7 +11,7 @@ import {addKantoPages} from './kanto-pages.mjs';
 import {addRegionalMotorcyclePages} from './regional-motorcycle-pages.mjs';
 import {addAreaPages} from './area-pages.mjs';
 import {addVehicleCategoryPages} from './vehicle-category-pages.mjs';
-import {writeKickboardMap,writeMotorcycleMap} from './kickboard-map-page.mjs';
+import {writeKickboardMap,writeMotorcycleMap,writeBicycleMap} from './kickboard-map-page.mjs';
 export const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = p => fs.readFileSync(path.join(root,p), 'utf8');
 const write = (p, value) => {fs.mkdirSync(path.dirname(p), {recursive:true});fs.writeFileSync(p,value);};
@@ -236,6 +236,7 @@ export function buildFrontend({apiBase,siteUrl,output=path.join(root,'dist')}={}
   cleanLocationProse(output);
   writeKickboardMap({output,siteUrl,...searchPages['kickboard-parking.html']});
   writeMotorcycleMap({output,siteUrl});
+  writeBicycleMap({output,siteUrl});
   return output;
 }
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)) {

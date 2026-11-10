@@ -47,3 +47,5 @@ html[lang="en"] .intro h1{font-size:30px}html[lang="en"] .detail dl{grid-templat
 /* Compact search controls leave the results as the main mobile surface. */
 .map-actions #open-comments{width:auto;padding:0 14px;font-size:12px;white-space:nowrap;border-radius:9px}
 @media(max-width:760px){.workspace{height:calc(100dvh - 58px)}.map-wrap{inset:58px 0 0}.filters{padding:10px 12px}.vehicle-picker{margin-bottom:8px;gap:10px}.vehicle-picker select{padding:8px 10px;min-height:36px}.searchbox{padding:9px 10px}.filter-row{margin:8px 0;gap:6px}.filter-row select,.bookmark-filter{padding:7px 9px;min-height:34px}.segments{padding:3px}.segments button{padding:6px 4px}.results-heading{padding:10px 16px}.map-actions{gap:5px;right:10px;top:12px}.map-actions #open-comments{padding:0 10px;font-size:11px}.map-heading{top:12px;left:10px;padding:10px;font-size:9px}.map-actions button{width:32px;height:34px}.map-heading #map-count,.map-heading-divider{display:none}}
+
+.category-heading{grid-column:1/-1;margin:0 0 8px;font-size:18px;line-height:1.5}

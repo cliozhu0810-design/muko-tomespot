@@ -238,6 +238,8 @@ test('static build preserves data and all local HTML links resolve on Pages',()=
   try {
     buildFrontend({apiBase:backend,output:out});
     const index=fs.readFileSync(path.join(out,'index.html'),'utf8');
+    for(const [page,label]of [['index.html','電動キックボードの駐輪場'],['kickboard-parking.html','電動キックボードの駐輪場'],['motorcycle-parking.html','原付・バイクの駐輪場'],['bicycle-parking.html','自転車の駐輪場']]){const html=fs.readFileSync(path.join(out,page),'utf8');assert.equal((html.match(/<h1\b/g)||[]).length,1,page);assert.ok(html.includes('<h1 class="category-heading">'+label+'</h1>'));assert.ok(html.includes('class="workspace"'));}
+
     assert.ok(!index.includes('class="side-footer"'));
     assert.ok(!index.includes('class="edition"'));
     assert.ok(!index.includes('class="search-about"'));
