@@ -182,6 +182,8 @@ export function buildFrontend({apiBase,siteUrl,output=path.join(root,'dist')}={}
         if(rel.endsWith('.html')||rel==='locales.json') body=standardizeTerms(body);
         body=rewrite(body);
       }
+      // Keep reviewed source data readable; compact only the deployed JSON asset.
+      if(rel==='vehicle-data.json') body=JSON.stringify(JSON.parse(body))+'\n';
       if(rel==='app.js') body=body.replace(/fetch\('\/api\/admin\/session'\)[\s\S]*$/,'');
       if(rel==='comments.js') body=body.replaceAll("fetch('/api/comments", "fetch(tomespotApi('/api/comments")
         .replace("+offset);", "+offset));")

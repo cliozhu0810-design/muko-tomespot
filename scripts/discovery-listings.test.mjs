@@ -29,11 +29,12 @@ test('Google discoveries preserve every existing record and remain unverified',(
 test('unverified category hints appear by default without leaking into scooter or confirmed modes',()=>{
  const c=context();const ids=(vehicle,mode='all')=>{Object.assign(c,{vehicle,mode});return JSON.parse(vm.runInContext('state.vehicle=vehicle;state.mode=mode;JSON.stringify(filtered().map(p=>p.id))',c));};
  const sets=Object.fromEntries(['bicycle','moped','motorcycle','privateElectricScooter'].map(v=>[v,new Set(ids(v))]));
- for(const p of parking.places.filter(p=>p.discoveryOnly))for(const [v,set] of Object.entries(sets))assert.equal(set.has(p.id),p.displayEligible!==false&&p.discoveryVehicleHints.some(h=>h===v||v==='motorcycle'&&h==='moped'),p.name+' '+v);
- const confirmed=new Set(ids('bicycle','temporary'));for(const p of parking.places.filter(p=>p.discoveryOnly))assert.ok(!confirmed.has(p.id));
+ const current=read('public/vehicle-data.json');
+ for(const p of parking.places.filter(p=>p.discoveryOnly))for(const [v,set] of Object.entries(sets)){const row=current.reviewedProfiles[p.id],reviewed=row?.publishedReview?.vehicles?.includes(v);const q=reviewed?(v==='motorcycle'?c.TomespotVehicleCategories.combined(row):c.TomespotVehicleCategories.profiles(row)[v]):null;assert.equal(set.has(p.id),p.displayEligible!==false&&(!q?.canonicalFacilityId||q.canonicalFacilityId===p.id)&&(reviewed?q.admissionStatus!=='rejected'&&(q.admissionStatus==='confirmed'||q.includeInVehicleResults):p.discoveryVehicleHints.some(h=>h===v||v==='motorcycle'&&h==='moped')),p.name+' '+v);}
+ const confirmed=new Set(ids('bicycle','temporary'));for(const p of parking.places.filter(p=>p.discoveryOnly))assert.ok(!confirmed.has(p.id),'bicycle hints alone do not gain a use mode');
  for(const mode of ['temporary','monthly','annual']){
   const combined=new Set(ids('motorcycle',mode));
-  for(const p of parking.places.filter(p=>p.discoveryOnly))assert.ok(!combined.has(p.id),'unverified discoveries must not become confirmed '+mode+' parking');
+  for(const p of parking.places.filter(p=>p.discoveryOnly))if(combined.has(p.id)){const row=current.reviewedProfiles[p.id];assert.ok(row?.publishedReview?.vehicles?.includes('motorcycle'));const q=c.TomespotVehicleCategories.combined(row);assert.equal(q.admissionStatus,'confirmed');assert.ok(mode==='temporary'?q.temporaryStatus==='confirmed':mode==='annual'?q.annualRegistrationStatus==='confirmed_application_required':q.regularStatus==='confirmed_application_required'||q.annualRegistrationStatus==='confirmed_application_required');}
  }
  for(const p of parking.places.filter(p=>p.discoveryOnly&&p.discoveryVehicleHints.includes('moped'))){
   const q=c.TomespotDiscoveryListings.profile(p,'motorcycle');

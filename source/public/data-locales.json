@@ -5523,5 +5523,84 @@
     "zh-Hans": "临时停车：运营方的设施列表未提供。\n年度登记：市内居民3,500日元，市外居民4,000日元（摩托车无学生优惠）。10月1日起申请减半，分别为1,750和2,000日元。有效期从登记日至2027年3月31日。",
     "zh-Hant": "臨時停車：營運方的設施列表未提供。\n年度登記：市內居民3,500日圓，市外居民4,000日圓（機車無學生優惠）。10月1日起申請減半，分別為1,750和2,000日圓。有效期從登記日至2027年3月31日。",
     "en": "Short stay: not offered in the operator’s facility list.\nAnnual registration: ¥3,500 for city residents, ¥4,000 for others; no student motorcycle discount. Applications from October 1 cost half: ¥1,750 / ¥2,000. Valid from registration through March 31, 2027."
+  },
+
+  "電動キックボードの利用可否は未確認です。原付・バイクの情報から受入れを推定していません。": {
+    "ja": "電動キックボードの利用可否は未確認です。原付・バイクの情報から受入れを推定していません。",
+    "zh-Hans": "电动滑板车准入尚未确认，未将原付或摩托车信息视为滑板车许可。",
+    "zh-Hant": "電動滑板車准入尚未確認，未將原付或機車資訊視為滑板車許可。",
+    "en": "Electric scooter admission remains unconfirmed; moped or motorcycle information is not treated as scooter permission."
+  },
+  "利用可の案内は、公式資料で確認できた車両区分・施設内の指定区画に限ります。料金、申請条件、入口、車体と設備の適合は個別にご確認ください。": {
+    "ja": "利用可の案内は、公式資料で確認できた車両区分・施設内の指定区画に限ります。料金、申請条件、入口、車体と設備の適合は個別にご確認ください。",
+    "zh-Hans": "可停结论仅适用于官方资料支持的车辆类别和指定区域；费用、申请条件、入口及车体与设施适配需分别确认。",
+    "zh-Hant": "可停結論僅適用於官方資料支持的車輛類別和指定區域；費用、申請條件、入口及車體與設施適配需分別確認。",
+    "en": "Admission applies only to the vehicle class and area supported by the official source. Check fees, applications, entrances and vehicle fit separately."
+  },
+  "公式案内の対象車種から利用対象外と判断しています。個別の禁止回答を得たものではありません。": {
+    "ja": "公式案内の対象車種から利用対象外と判断しています。個別の禁止回答を得たものではありません。",
+    "zh-Hans": "依据官方列明的适用车种推定不适用，未取得单独的禁停答复。",
+    "zh-Hant": "依據官方列明的適用車種推定不適用，未取得單獨的禁停答覆。",
+    "en": "Exclusion is inferred from the listed eligible vehicle types; it is not an individual prohibition response."
+  },
+  "公式案内で電動キックボードの利用対象外と確認した範囲の情報です。": {
+    "ja": "公式案内で電動キックボードの利用対象外と確認した範囲の情報です。",
+    "zh-Hans": "这是官方说明中已确认不适用电动滑板车的范围。",
+    "zh-Hant": "這是官方說明中已確認不適用電動滑板車的範圍。",
+    "en": "This concerns the scope in which official guidance excludes electric scooters."
+  },
+  "年度登録の承認が必要です。一時利用や毎月更新の契約を確認したものではありません。募集・待機状況は運営者にご確認ください。": {
+    "ja": "年度登録の承認が必要です。一時利用や毎月更新の契約を確認したものではありません。募集・待機状況は運営者にご確認ください。",
+    "zh-Hans": "需要年度登记批准；不代表已确认临停或按月续约，申请及候补情况请向运营方确认。",
+    "zh-Hant": "需要年度登記批准；不代表已確認臨停或按月續約，申請及候補情況請向營運方確認。",
+    "en": "Approved annual registration is required. This does not establish short-stay or rolling monthly access. Check applications and waiting lists with the operator."
+  },
+  "月極契約の対象です。時間貸しの情報ではありません。新規契約は空き状況と運営者の承認によります。": {
+    "ja": "月極契約の対象です。時間貸しの情報ではありません。新規契約は空き状況と運営者の承認によります。",
+    "zh-Hans": "适用于月租合同，不代表提供临停；新合同取决于空位及运营方批准。",
+    "zh-Hant": "適用於月租契約，不代表提供臨停；新契約取決於空位及營運方批准。",
+    "en": "Monthly contracts only; this does not establish short-stay access. New contracts depend on availability and operator approval."
+  },
+  "一時利用に限る案内です。定期・月極契約には適用していません。": {
+    "ja": "一時利用に限る案内です。定期・月極契約には適用していません。",
+    "zh-Hans": "本说明仅适用于临时停车，未扩展到定期或月租合同。",
+    "zh-Hant": "本說明僅適用於臨時停車，未擴展到定期或月租契約。",
+    "en": "This guidance applies to short-stay use only, not permit or monthly contracts."
+  },
+  "確認時の公式ページは満車表示でした。現在の空き状況は運営者にご確認ください。": {
+    "ja": "確認時の公式ページは満車表示でした。現在の空き状況は運営者にご確認ください。",
+    "zh-Hans": "核查时官方页面显示满位；当前空位请向运营方确认。",
+    "zh-Hant": "核查時官方頁面顯示滿位；目前空位請向營運方確認。",
+    "en": "The official page showed full when checked. Ask the operator about current availability."
+  },
+  "電動キックボードは地下1階の南駐輪場が対象で、原付と同じ料金です。北西駐輪場など他の区画には適用していません。": {
+    "ja": "電動キックボードは地下1階の南駐輪場が対象で、原付と同じ料金です。北西駐輪場など他の区画には適用していません。",
+    "zh-Hans": "电动滑板车适用于地下1层南驻轮区，按原付收费；未扩展至北西等其他分区。",
+    "zh-Hant": "電動滑板車適用於地下1層南駐輪區，按原付收費；未擴展至北西等其他分區。",
+    "en": "Scooters are accepted in the B1 south cycle parking area at moped rates. This does not apply to the northwest or other areas."
+  },
+  "駅周辺エリアの原付区画に関する案内です。地図上の各参考位置で利用できる区画まで確認したものではありません。": {
+    "ja": "駅周辺エリアの原付区画に関する案内です。地図上の各参考位置で利用できる区画まで確認したものではありません。",
+    "zh-Hans": "这是车站周边区域原付车位的说明，尚未确认地图各参考位置的具体可用车位。",
+    "zh-Hant": "這是車站周邊區域原付車位的說明，尚未確認地圖各參考位置的具體可用車位。",
+    "en": "This concerns moped bays in the station area; it does not verify an eligible bay at each map reference point."
+  },
+  "この施設・区画の原付・バイクの利用条件には未確認項目があります。排気量、利用区分、料金は公式案内でご確認ください。": {
+    "ja": "この施設・区画の原付・バイクの利用条件には未確認項目があります。排気量、利用区分、料金は公式案内でご確認ください。",
+    "zh-Hans": "该设施或分区的原付、摩托车条件仍有未确认项；排量、停车方式及费用请查看官方说明。",
+    "zh-Hant": "該設施或分區的原付、機車條件仍有未確認項；排氣量、停車方式及費用請查看官方說明。",
+    "en": "Some moped and motorcycle conditions remain unconfirmed for this facility or area. Check displacement limits, use modes and fees with the official source."
+  },
+  "公式資料の車種表記（原文）": {
+    "ja": "公式資料の車種表記（原文）",
+    "zh-Hans": "官方资料车种表记（日文原文）",
+    "zh-Hant": "官方資料車種表記（日文原文）",
+    "en": "Vehicle wording in the official source (Japanese)"
+  },
+  "名称を掲載した確認待ちの候補です。既存施設との重複、正確な位置、利用可否・料金は未確認です。": {
+    "ja": "名称を掲載した確認待ちの候補です。既存施設との重複、正確な位置、利用可否・料金は未確認です。",
+    "zh-Hans": "这是仅收录名称的待确认候选，与既有设施是否重复、准确位置、准入及费用尚未确认。",
+    "zh-Hant": "這是僅收錄名稱的待確認候選，與既有設施是否重複、準確位置、准入及費用尚未確認。",
+    "en": "This is a name-only candidate. Duplicate identity, exact location, access and fees remain unconfirmed."
   }
 }

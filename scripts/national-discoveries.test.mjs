@@ -20,8 +20,8 @@ test('national release preparation preserves baseline and unverified-only fields
 test('national candidates appear in relevant all-results and never confirmed use-mode filters',()=>{
  const {c,elements}=context();const rows=(vehicle,mode='all')=>{Object.assign(c,{vehicle,mode});return JSON.parse(vm.runInContext('state.vehicle=vehicle;state.mode=mode;JSON.stringify(filtered().filter(p=>p.nationalDiscovery))',c));};
  assert.ok(rows('motorcycle').length>200);assert.ok(rows('bicycle').length>500);
- for(const v of ['bicycle','motorcycle'])for(const mode of ['temporary','monthly','annual'])assert.equal(rows(v,mode).length,0);
- assert.equal(rows('privateElectricScooter').length,0,'new category hints must not imply scooter acceptance');
+ for(const v of ['bicycle','motorcycle'])for(const mode of ['temporary','monthly','annual'])for(const p of rows(v,mode)){assert.equal(p.discoveryOnly,false);assert.equal(p.status,'confirmed');assert.ok(c.vehicles.reviewedProfiles[p.id]?.publishedReview.vehicles.includes(v));}
+ assert.ok(rows('privateElectricScooter').length>0);for(const p of rows('privateElectricScooter')){assert.ok(c.vehicles.reviewedProfiles[p.id]?.publishedReview.vehicles.includes('privateElectricScooter'));if(p.status==='unknown'){assert.equal(p.temporary,false);assert.equal(p.monthly,false);assert.equal(p.vehicleProfile.mopedDefault,undefined);}}
  elements.ward.value='沖縄県';assert.ok(rows('bicycle').length>0);assert.ok(rows('bicycle').every(p=>p.ward==='沖縄県'));
  elements.ward.value='';elements.search.value='札幌';assert.ok(rows('motorcycle').length>0);
 });
@@ -44,7 +44,7 @@ test('national OSM collection preserves license, missing names, identity and unk
 test('OSM category hints stay unverified and unnamed cards use the selected language',()=>{
  const {c}=context();c.osm=osm;
  vm.runInContext('state.places=TomespotDiscoveryListings.mergePlaces(state.places,osm.places)',c);
- for(const v of ['bicycle','motorcycle']){c.vehicle=v;assert.ok(vm.runInContext("state.vehicle=vehicle;state.mode='all';filtered().some(p=>p.osmUrl)",c));for(const mode of ['temporary','monthly','annual']){c.mode=mode;assert.equal(vm.runInContext('state.mode=mode;filtered().some(p=>p.osmUrl)',c),false);}}
+ for(const v of ['bicycle','motorcycle']){c.vehicle=v;assert.ok(vm.runInContext("state.vehicle=vehicle;state.mode='all';filtered().some(p=>p.osmUrl)",c));for(const mode of ['temporary','monthly','annual']){c.mode=mode;for(const p of JSON.parse(vm.runInContext('state.mode=mode;JSON.stringify(filtered().filter(p=>p.osmUrl))',c))){assert.equal(p.status,'confirmed');assert.ok(c.vehicles.reviewedProfiles[p.id]?.publishedReview.vehicles.includes(v));}}}
  assert.equal(vm.runInContext("state.vehicle='privateElectricScooter';state.mode='all';filtered().some(p=>p.osmUrl)",c),false);
  for(const p of [osm.places.find(p=>p.name),osm.places.find(p=>p.nameUnverified)]){c.place=p;for(const lang of ['ja','zh-Hans','zh-Hant','en']){c.lang=lang;vm.runInContext('locale=lang',c);const html=vm.runInContext('discoveryDetailHtml(place)',c);assert.ok(html.includes(c.locales.pending[lang]));assert.ok(html.includes(p.osmUrl));if(p.nameUnverified)assert.ok(html.includes(c.locales[p.discoveryVehicleHints.includes('motorcycle')?'unnamedMotorcycleParking':'unnamedBicycleParking'][lang]));}}
  for(const osmUrl of ['javascript:alert(1)','https://www.openstreetmap.org.evil.test/node/1','https://www.openstreetmap.org/user/name','http://www.openstreetmap.org/node/1'])assert.equal(c.TomespotDiscoveryListings.destination({osmUrl}),null);

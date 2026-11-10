@@ -266,6 +266,9 @@ test('static build preserves data and all local HTML links resolve on Pages',()=
     for(const page of coverage.pages){const html=fs.readFileSync(path.join(out,page.path+'.html'),'utf8');for(const [,id] of html.matchAll(/href="\/parking\/([^"/]+)\.html"/g))expectedFacilities.add(id);}
     assert.deepEqual(new Set(fs.readdirSync(path.join(out,'parking')).map(f=>f.replace(/\.html$/,''))),expectedFacilities);
     assert.equal(fs.readFileSync(path.join(out,'parking.json'),'utf8'),fs.readFileSync(path.join(root,'source/public/parking.json'),'utf8'));
+    assert.deepEqual(JSON.parse(fs.readFileSync(path.join(out,'vehicle-data.json'))),JSON.parse(fs.readFileSync(path.join(root,'source/public/vehicle-data.json'))));
+    assert.ok(fs.statSync(path.join(out,'vehicle-data.json')).size<25*1024*1024);
+    assert.equal(fs.existsSync(path.join(out,'verification-directory.html')),false);
     const walk=dir=>fs.readdirSync(dir,{withFileTypes:true}).flatMap(x=>x.isDirectory()?walk(path.join(dir,x.name)):[path.join(dir,x.name)]);
     for(const file of walk(out)) {
       if(file.endsWith('.js')) new vm.Script(fs.readFileSync(file,'utf8'),{filename:file});
@@ -515,7 +518,7 @@ test('motorcycle category preparation respects negative clauses, restricted mope
 
 test('stored moped fallbacks preserve official scooter status and render fees only as moped references in four languages',()=>{
  const v=JSON.parse(fs.readFileSync(path.join(root,'source/public/vehicle-data.json'))),l=JSON.parse(fs.readFileSync(path.join(root,'source/public/locales.json'))),d=JSON.parse(fs.readFileSync(path.join(root,'source/public/data-locales.json')));
- const c=vm.createContext({URL,localStorage:{getItem:()=>null},document:{getElementById:()=>null}});vm.runInContext(fs.readFileSync(path.join(root,'source/public/app.js'),'utf8').split("$('search').addEventListener")[0],c);c.v=v;c.l=l;c.d=d;
+ const c=vm.createContext({URL,localStorage:{getItem:()=>null},document:{getElementById:()=>null}});vm.runInContext(fs.readFileSync(path.join(root,'source/public/app.js'),'utf8').split("$('search').addEventListener")[0],c);c.v={...v,reviewedProfiles:{}};c.l=l;c.d=d;
  vm.runInContext('vehicleData=v;messages=l;dataMessages=d;dataset={source:"https://example.com"};state.vehicle="privateElectricScooter";',c);
  for(const [id,row] of Object.entries(v.profiles)){if(!row.privateElectricScooter?.mopedFallback)continue;assert.equal(row.privateElectricScooter.admissionStatus,'unknown');assert.equal(row.motorcycle.categoryClassification.groups.moped.status,'confirmed');const fees=row.motorcycle.categoryClassification.mopedData.publishedFeesRaw;if(fees)for(const lang of ['ja','zh-Hans','zh-Hant','en'])assert.ok(d[fees]?.[lang],id);}
  c.place={id:'12014',name:'烏山中央自転車等駐車場',address:'東京都世田谷区南烏山5-17-23',ward:'世田谷区'};

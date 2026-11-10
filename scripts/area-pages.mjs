@@ -35,10 +35,11 @@ export function addAreaPages({root,output,siteUrl}){
  // Render existing facility pages and new area-linked facilities with the map's own
  // vehicle renderer: fees, restrictions and review dates share one implementation.
  const c=vm.createContext({TomespotVehicleCategories:vehicleCategories,document:{getElementById:()=>null},localStorage:{getItem:()=>null},URL});
+ vm.runInContext(fs.readFileSync(path.join(root,'source/public/discovery-listings.js'),'utf8'),c);
  vm.runInContext(fs.readFileSync(path.join(root,'source/public/app.js'),'utf8').split("$('search').addEventListener")[0],c);
  Object.assign(c,{parking,vehicles,locales,dataLocales});vm.runInContext('dataset=parking;vehicleData=vehicles;messages=locales;dataMessages=dataLocales;',c);
  const needed=new Set(groups.flatMap(g=>g.places.map(p=>p.id)));
- for(const p of parking.places){if(!needed.has(p.id)&&!fs.existsSync(path.join(output,'parking',p.id+'.html')))continue;if(!viewProfiles[p.id])continue;c.place=p;
+ for(const p of parking.places){if(p.discoveryOnly)continue;if(!needed.has(p.id)&&!fs.existsSync(path.join(output,'parking',p.id+'.html')))continue;if(!viewProfiles[p.id])continue;c.place=p;
   const sections=Object.keys(labels).map(k=>{c.kind=k;const body=vm.runInContext('state.vehicle=kind;profileDetailHtml(profilePlace(place))',c).replace(/<button class="detail-close"[\s\S]*?<\/button>/,'').replace(/id="detail-close"/g,'').replace(/<h2 lang="ja">[\s\S]*?<\/h2><p class="detail-address"[\s\S]*?<\/p>/,'');return `<section class="vehicle-section" id="${k}"><h2>${labels[k]}</h2>${body}<p><a href="/?vehicle=${k}&amp;place=${encodeURIComponent(p.id)}">この車種で地図を開く・コメントする</a></p></section>`;}).join('');
   save('/parking/'+p.id,p.name,`<h1>${esc(p.name)}</h1><nav class="ward-nav">${groups.filter(g=>g.places.some(x=>x.id===p.id)).map(areaLink).join(' ')}</nav>${sections}<p><a href="/?place=${encodeURIComponent(p.id)}">四言語の地図で見る / 中文 / English</a></p>`);
  }
