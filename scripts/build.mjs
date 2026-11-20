@@ -158,7 +158,7 @@ export function buildFrontend({apiBase,siteUrl,output=path.join(root,'dist')}={}
   if(isSupabase&&!supabaseKey)throw Error('Set TOMESPOT_SUPABASE_KEY to the public publishable/anon key. Never use service_role or a secret key.');
   if(supabaseKey.startsWith('sb_secret_'))throw Error('A secret key must never be published. Use the publishable key.');
   if(supabaseKey.split('.').length===3){try{if(JSON.parse(Buffer.from(supabaseKey.split('.')[1],'base64url')).role!=='anon')throw Error('Only an anon JWT key is allowed in public config.');}catch(e){throw Error('Invalid public Supabase key: '+e.message);}}
-  const htmlPath=p => !p.startsWith('/')||p.split(/[?#]/)[0]==='/'||/\.[a-z0-9]+(?:[?#]|$)/i.test(p)||p.startsWith('//') ? p : p.replace(/^([^?#]*)(.*)$/, '$1.html$2');
+  const htmlPath=p => !p.startsWith('/')||p.split(/[?#]/)[0].endsWith('/')||/\.[a-z0-9]+(?:[?#]|$)/i.test(p)||p.startsWith('//') ? p : p.replace(/^([^?#]*)(.*)$/, '$1.html$2');
   const standardizeTerms = text => text
     .replaceAll('電動キックボードの駐車場・停める場所','電動キックボードの駐輪場')
     .replaceAll('電動キックボード駐車場・停める場所','電動キックボード駐輪場')
