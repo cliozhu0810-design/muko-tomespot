@@ -1366,5 +1366,11 @@
     "zh-Hans": "在 OpenStreetMap 查看",
     "zh-Hant": "在 OpenStreetMap 查看",
     "en": "View on OpenStreetMap"
+  },
+  "browseAreas": {
+    "ja": "地域・駅から探す",
+    "zh-Hans": "按地区、车站查找",
+    "zh-Hant": "依地區、車站查找",
+    "en": "Areas & stations"
   }
 }
