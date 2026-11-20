@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 import {categoryProfiles,vehicleCategories} from './vehicle-categories.mjs';
 import {addVehicleCategoryPages} from './vehicle-category-pages.mjs';
+import {createMapListings} from './map-listings.mjs';
 import os from 'node:os';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -17,15 +18,17 @@ test('combined category includes mopeds and motorcycles and preserves the old UR
   fs.writeFileSync(path.join(output,'about.html'),'<a href="/motorcycle-parking.html">バイク・原付の駐輪場</a>');
   const options={root:fileURLToPath(new URL('..',import.meta.url)),output,siteUrl};
   addVehicleCategoryPages(options);addVehicleCategoryPages(options);
-  const v=read('vehicle-data.json'),parking=read('parking.json');
-  for(const kind of ['motorcycle']) {
-   const html=fs.readFileSync(path.join(output,kind+'-parking.html'),'utf8');
+  const map=createMapListings(options.root);
+  for(const kind of ['motorcycle','privateElectricScooter']) {
+   const slug=kind==='privateElectricScooter'?'kickboard':kind;
+   const html=fs.readFileSync(path.join(output,slug+'-parking.html'),'utf8');
    const ids=[...html.matchAll(/data-place="([^"]+)"/g)].map(m=>m[1]);
-   const expected=parking.places.filter(p=>p.displayEligible!==false&&!p.discoveryOnly&&(!p.canonicalFacilityId||p.canonicalFacilityId===p.id)&&vehicleCategories.combined(v.reviewedProfiles?.[p.id]||v.profiles[p.id]).admissionStatus==='confirmed').map(p=>p.id);
+   const expected=map.listings(kind).map(p=>p.id);
    assert.deepEqual(new Set(ids),new Set(expected));
-   assert.ok(html.includes(`rel="canonical" href="${siteUrl}/${kind}-parking"`));
-   assert.ok(html.includes(`vehicle=${kind}&amp;place=`));
-   assert.ok(ids.includes('21108'));assert.match(html,/原付・バイク/);
+   assert.ok(html.includes(`rel="canonical" href="${siteUrl}/${slug}-parking"`));
+   assert.ok(html.includes(`${slug}-parking?place=`));
+   assert.ok(html.includes('受入未確認・候補'));
+   if(kind==='motorcycle'){assert.ok(!ids.includes('21108'));assert.match(html,/原付・バイク/);}
   }
   const xml=fs.readFileSync(path.join(output,'sitemap.xml'),'utf8');
   for(const kind of ['motorcycle'])assert.equal(xml.split(`<loc>${siteUrl}/${kind}-parking</loc>`).length-1,1);
@@ -41,13 +44,18 @@ test('mopeds and motorcycles have independent admission, class-specific fees and
 });
 test('combined map includes moped-only records without changing scooter references',()=>{
  const v=read('vehicle-data.json'),parking=read('parking.json'),l=read('locales.json');
+ // Exercise the immutable moped-only fixture independently of later official
+ // facility reviews; the actual 21108 now has an explicit reviewed rejection.
+ v.profiles['fixture-moped-only']=structuredClone(v.profiles['21108']);
+ parking.places.push({...parking.places.find(p=>p.id==='21108'),id:'fixture-moped-only'});
  const elements={search:{value:''},ward:{value:''},unknown:{checked:false}};
  const c=vm.createContext({TomespotVehicleCategories:vehicleCategories,URL,localStorage:{getItem:()=>null},document:{getElementById:id=>elements[id]}});
  vm.runInContext(fs.readFileSync(new URL('../source/public/app.js',import.meta.url),'utf8').split("$('search').addEventListener")[0],c);
  Object.assign(c,{v,parking,l});vm.runInContext('vehicleData=v;dataset=parking;messages=l;state.places=parking.places;',c);
  const ids=vehicle=>{c.vehicle=vehicle;return JSON.parse(vm.runInContext('state.vehicle=vehicle;JSON.stringify(filtered().map(p=>p.id))',c));};
  const moped=ids('moped'),motorcycle=ids('motorcycle');assert.ok(moped.length>100);assert.ok(motorcycle.length>100);
- assert.ok(moped.includes('21108'));assert.ok(motorcycle.includes('21108'));
+ assert.ok(moped.includes('fixture-moped-only'));assert.ok(motorcycle.includes('fixture-moped-only'));
+ assert.ok(!moped.includes('21108'));assert.ok(!motorcycle.includes('21108'));
  assert.equal(vehicleCategories.combined(v.profiles['21108']).classesRaw.join(' / '),v.profiles['21108'].motorcycle.classesRaw.join(' / '));
  assert.ok(ids('privateElectricScooter').includes('jks-00800'));
  for(const lang of ['ja','zh-Hans','zh-Hant','en']){assert.ok(l.mopedLabel[lang]);assert.ok(l.motorcycleLabel[lang]);assert.notEqual(l.mopedLabel[lang],l.motorcycleLabel[lang]);}

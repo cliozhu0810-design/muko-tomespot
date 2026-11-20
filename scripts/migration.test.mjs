@@ -263,9 +263,9 @@ test('static build preserves data and all local HTML links resolve on Pages',()=
     const cityReports=['kawaguchi','toshima','kanto','motorcycle'].map(city=>JSON.parse(fs.readFileSync(path.join(root,'source/public/'+city+'-review.json'),'utf8')));
     const expectedFacilities=new Set(['fk-ikebukuro2','seibu-minami-ikebukuro',...fs.readdirSync(path.join(root,'source/public/parking')).map(f=>f.replace(/\.html$/,'')),...cityReports.flatMap(r=>r.records.map(x=>x.id))]);
     const coverage=JSON.parse(fs.readFileSync(path.join(out,'area-coverage.json'),'utf8'));
-    assert.equal(coverage.prefectures.length,4);
+    assert.equal(coverage.prefectures.length,47);
     assert.ok(coverage.pages.every(p=>p.count>=3));
-    for(const page of coverage.pages){const html=fs.readFileSync(path.join(out,page.path+'.html'),'utf8');for(const [,id] of html.matchAll(/href="\/parking\/([^"/]+)\.html"/g))expectedFacilities.add(id);}
+    for(const page of coverage.pages){const html=fs.readFileSync(path.join(out,page.path+'.html'),'utf8');for(const [,id] of html.matchAll(/href="\/parking\/([^"/]+)\.html(?:[?#][^"]*)?"/g))expectedFacilities.add(id);}
     assert.deepEqual(new Set(fs.readdirSync(path.join(out,'parking')).map(f=>f.replace(/\.html$/,''))),expectedFacilities);
     assert.equal(fs.readFileSync(path.join(out,'parking.json'),'utf8'),fs.readFileSync(path.join(root,'source/public/parking.json'),'utf8'));
     assert.deepEqual(JSON.parse(fs.readFileSync(path.join(out,'vehicle-data.json'))),JSON.parse(fs.readFileSync(path.join(root,'source/public/vehicle-data.json'))));
@@ -280,7 +280,7 @@ test('static build preserves data and all local HTML links resolve on Pages',()=
         if(/^(?:https?:|data:|blob:|mailto:|tel:|#|\/\/)/.test(href))continue;
         const url=new URL(href,new URL(path.relative(out,file).replaceAll('\\','/'),frontend+'/'));
         const local=decodeURIComponent(url.pathname);
-        assert.ok(fs.existsSync(path.join(out,local==='/'?'index.html':local)),file+' missing '+local);
+        assert.ok(fs.existsSync(path.join(out,local==='/'?'index.html':local))||!path.extname(local)&&fs.existsSync(path.join(out,local+'.html')),file+' missing '+local);
       }
     }
     assert.ok(!fs.existsSync(path.join(out,'ikebukuro-kickboard-parking.html')));
@@ -299,6 +299,8 @@ test('static build preserves data and all local HTML links resolve on Pages',()=
     const expectedPaths=new Set([...originalXML.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>new URL(m[1]).pathname.replace(/\.html$/,'')));
     for(const p of ['/about','/kawaguchi-parking','/toshima-parking','/kanto-parking','/regional-motorcycle-parking','/parking/fk-ikebukuro2','/parking/seibu-minami-ikebukuro',...cityReports.flatMap(r=>r.records.map(x=>'/parking/'+x.id))])expectedPaths.add(p);
     for(const p of ['/areas/index','/areas/tokyo','/areas/saitama','/areas/chiba-prefecture','/areas/kanagawa',...coverage.pages.map(p=>p.path),...Array.from(expectedFacilities,id=>'/parking/'+id)])expectedPaths.add(p);
+    const prefectureNames=JSON.parse(fs.readFileSync(path.join(root,'source/public/prefectures.json'),'utf8')).prefectures.map(p=>p.name);
+    for(const c of coverage.prefectures){const slug=({'東京都':'tokyo','埼玉県':'saitama','千葉県':'chiba-prefecture','神奈川県':'kanagawa'}[c.name]||'prefecture-'+String(prefectureNames.indexOf(c.name)+1).padStart(2,'0'));expectedPaths.add('/areas/'+slug);}
     assert.deepEqual(new Set(urls.map(u=>new URL(u).pathname)),expectedPaths);
     for(const url of urls){
       assert.equal(new URL(url).origin,'https://muko-tomespot.pages.dev');
@@ -307,7 +309,7 @@ test('static build preserves data and all local HTML links resolve on Pages',()=
       assert.ok(fs.existsSync(path.join(out,file)),url+' has no output');
       assert.ok(fs.readFileSync(path.join(out,file),'utf8').includes('rel="canonical" href="'+url+'"'),url+' canonical differs');
     }
-    for(const [file,term] of [['kickboard-parking.html','キックボード駐車場'],['bicycle-parking.html','自転車駐輪場'],['motorcycle-parking.html','バイク駐輪場']]){
+    for(const [file,term] of [['kickboard-parking.html','電動キックボードの駐輪場'],['bicycle-parking.html','自転車駐輪場'],['motorcycle-parking.html','バイク駐輪場']]){
       const page=fs.readFileSync(path.join(out,file),'utf8');
       assert.ok(page.includes(term));
       for(const [,data]of page.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g))JSON.parse(data);

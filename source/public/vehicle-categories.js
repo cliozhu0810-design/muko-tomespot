@@ -36,15 +36,20 @@
  function combined(row){
   const views=profiles(row),parts=[views.moped,views.motorcycle];
   const admitted=parts.filter(q=>q.admissionStatus==='confirmed');
-  const status=admitted.length?'confirmed':parts.every(q=>q.admissionStatus==='rejected')?'rejected':'unknown';
+  const source=row?.motorcycle||{};
+  const jointStatus=source.jointMotorcycleAdmissionStatus;
+  const status=['confirmed','rejected','unknown'].includes(jointStatus)?jointStatus:admitted.length?'confirmed':parts.every(q=>q.admissionStatus==='rejected')?'rejected':'unknown';
   // Retain original class labels and tariffs; combining the picker must not
   // turn moped-only evidence into permission for larger motorcycles.
-  const source=row?.motorcycle||{};
+  const distinct=values=>[...new Map(values.map(value=>[JSON.stringify(value),value])).values()];
+  const tariffRows=admitted.flatMap(q=>(q.tariffs||[]).map(t=>({...t,sourceVehicleClass:t.sourceVehicleClass||t.sourceVehicle||q.classesRaw?.join(' / ')||''})));
+  const feeText=admitted.filter(q=>q.publishedFeesRaw).map(q=>[q.classesRaw?.join(' / '),q.publishedFeesRaw].filter(Boolean).join('：'));
   const mode=key=>{const values=[...new Set(admitted.map(q=>q[key]))];return source[key]&&source[key]!=='unverified'?source[key]:values.length===1?values[0]:'class_dependent';};
   return normalize({...source,category:'motorcycle',admissionStatus:status,
-   classesRaw:source.classesRaw||[...new Set(admitted.flatMap(q=>q.classesRaw))],
-   tariffs:source.tariffs||admitted.flatMap(q=>q.tariffs),
-   sources:source.sources||admitted.flatMap(q=>q.sources),
+   classesRaw:source.classesRaw?.length?source.classesRaw:[...new Set(admitted.flatMap(q=>q.classesRaw))],
+   tariffs:source.tariffs?.length?source.tariffs:distinct(tariffRows),
+   publishedFeesRaw:source.publishedFeesRaw||[...new Set(feeText)].join('\n'),
+   sources:source.sources?.length?source.sources:distinct(admitted.flatMap(q=>q.sources)),
    temporaryStatus:admitted.some(q=>q.temporaryStatus==='confirmed')?'confirmed':mode('temporaryStatus'),
    regularStatus:admitted.some(q=>q.regularStatus==='confirmed_application_required')?'confirmed_application_required':mode('regularStatus'),
    annualRegistrationStatus:admitted.some(q=>q.annualRegistrationStatus==='confirmed_application_required')?'confirmed_application_required':source.annualRegistrationStatus});
