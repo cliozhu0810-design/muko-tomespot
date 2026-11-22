@@ -6105,5 +6105,53 @@
     "zh-Hans": "原付13。原付与摩托车的区域及收费分开，排量范围及特定小型车辆是否允许停放仍待确认。",
     "zh-Hant": "原付13。原付與機車的區域及收費分開，排氣量範圍及特定小型車輛是否可停放仍待確認。",
     "en": "Source lists mopeds: 13. Moped and motorcycle areas and rates are separate. Engine-size limits and acceptance of specified small motorized vehicles require confirmation."
+  },
+  "燃油50cc以下/新基准原付,按官方原类": {
+    "ja": "50cc以下の原付・新基準原付",
+    "zh-Hans": "50cc以下原付及新标准原付",
+    "zh-Hant": "50cc以下原付及新基準原付",
+    "en": "Mopeds up to 50cc and new-standard mopeds"
+  },
+  "ナンバープレート取得済みの特定小型原動機付自転車が対象です。": {
+    "ja": "ナンバープレート取得済みの特定小型原動機付自転車が対象です。",
+    "zh-Hans": "仅限已取得车牌的特定小型原动机付自行车。",
+    "zh-Hant": "僅限已領牌的特定小型原動機付自行車。",
+    "en": "For registered specified small motorized vehicles with a number plate."
+  },
+  "一時利用・定期利用可。定期利用は申込が必要です。": {
+    "ja": "一時利用・定期利用可。定期利用は申込が必要です。",
+    "zh-Hans": "可临停、可月租；月租须申请。",
+    "zh-Hant": "可臨停、可月租；月租須申請。",
+    "en": "Short-stay and season parking available. Season parking requires an application."
+  },
+  "50cc以下、または125cc以下・最高出力4kW以下の原付": {
+    "ja": "50cc以下、または125cc以下・最高出力4kW以下の原付",
+    "zh-Hans": "50cc以下，或125cc以下且最大功率不超过4kW的原付",
+    "zh-Hant": "50cc以下，或125cc以下且最大功率不超過4kW的原付",
+    "en": "Mopeds up to 50cc, or up to 125cc with maximum output of 4kW"
+  },
+  "原付のみ": {
+    "ja": "原付のみ",
+    "zh-Hans": "仅限原付",
+    "zh-Hant": "僅限原付",
+    "en": "Mopeds only"
+  },
+  "定期利用は申込が必要です。": {
+    "ja": "定期利用は申込が必要です。",
+    "zh-Hans": "月租须申请。",
+    "zh-Hant": "月租須申請。",
+    "en": "Season parking requires an application."
+  },
+  "1時間無料、以後9時間ごと225円": {
+    "ja": "1時間無料、以後9時間ごと225円",
+    "en": "First hour free; ¥225 per 9 hours thereafter",
+    "zh-Hans": "首小时免费，之后每9小时225日元",
+    "zh-Hant": "首小時免費，之後每9小時225日圓"
+  },
+  "原付3台。定期利用はできません。": {
+    "ja": "原付3台。定期利用はできません。",
+    "en": "3 moped spaces. Monthly parking is not offered.",
+    "zh-Hans": "轻便摩托车位3个，不提供月租。",
+    "zh-Hant": "輕便機車位3個，不提供月租。"
   }
 }

@@ -421334,7 +421334,7 @@
           "checked": "2026-11-22",
           "facilityMatched": true,
           "temporaryStatus": "confirmed",
-          "regularStatus": "unverified",
+          "regularStatus": "not_offered",
           "tariffs": [],
           "classesRaw": [
             "自転車（指定区画・条件あり）"
@@ -421438,12 +421438,35 @@
           "unifiedReviewId": "scooter-unified-40f696dc25bc248f"
         },
         "moped": {
-          "admissionStatus": "unknown",
-          "temporaryStatus": "unverified",
-          "regularStatus": "unverified",
+          "admissionStatus": "confirmed",
+          "temporaryStatus": "confirmed",
+          "regularStatus": "not_offered",
+          "checked": "2026-11-22",
+          "facilityMatched": true,
+          "classesRaw": [
+            "原付"
+          ],
           "tariffs": [],
+          "publishedFeesRaw": "1時間無料、以後9時間ごと225円",
+          "hours": "24時間",
+          "hoursStatus": "confirmed",
+          "sources": [
+            {
+              "url": "https://smilepark.seiburealestate-pm.co.jp/parking/detail/h579.html",
+              "checkedOn": "2026-11-22"
+            },
+            {
+              "url": "https://www.city.toshima.lg.jp/434/machizukuri/kotsu/churinjo/022247/007088.html",
+              "checkedOn": "2026-11-22"
+            }
+          ],
+          "includeInVehicleResults": true,
           "entranceVerified": false,
-          "includeInVehicleResults": false
+          "allEngineSizesAllowed": false,
+          "currentConditionsRaw": [
+            "原付3台。定期利用はできません。"
+          ],
+          "correctionAudit": "moped-filter-reconciliation-2026-11-22"
         },
         "motorcycle": {
           "admissionStatus": "unknown",
@@ -421455,39 +421478,27 @@
         }
       },
       "motorcycle": {
-        "admissionStatus": "unknown",
-        "checked": "2026-11-20",
-        "facilityMatched": false,
-        "temporaryStatus": "unverified",
-        "regularStatus": "unverified",
+        "admissionStatus": "confirmed",
+        "checked": "2026-11-22",
+        "facilityMatched": true,
+        "temporaryStatus": "confirmed",
+        "regularStatus": "not_offered",
         "tariffs": [],
         "classesRaw": [
-          "原付・バイク（車種・区画条件は公式案内をご確認ください）"
+          "原付"
         ],
         "sources": [
           {
-            "url": "https://www.tomin-anzen.metro.tokyo.lg.jp/kotsu/jitensha/seisaku-jyourei/churinjou",
-            "checkedOn": "2026-11-11"
-          },
-          {
-            "url": "https://www.tomin-anzen.metro.tokyo.lg.jp/documents/d/tomin-anzen/r7churinjou",
-            "checkedOn": "2026-11-11"
-          },
-          {
-            "url": "https://www.city.toshima.lg.jp/434/machizukuri/kotsu/churinjo/2605011407.html",
-            "checkedOn": "2026-11-11"
+            "url": "https://smilepark.seiburealestate-pm.co.jp/parking/detail/h579.html",
+            "checkedOn": "2026-11-22"
           },
           {
             "url": "https://www.city.toshima.lg.jp/434/machizukuri/kotsu/churinjo/022247/007088.html",
-            "checkedOn": "2026-11-11"
-          },
-          {
-            "url": "https://smilepark.seiburealestate-pm.co.jp/parking/detail/h579.html",
-            "checkedOn": "2026-11-20"
+            "checkedOn": "2026-11-22"
           }
         ],
         "currentConditionsRaw": [
-          "この車種の利用条件は確認中です。過去の案内から現在の受入れを推定していません。指定区画・利用方法は公式案内でご確認ください。"
+          "原付3台。定期利用はできません。"
         ],
         "includeInVehicleResults": true,
         "admissionReviewed": true,
@@ -421502,7 +421513,11 @@
           "regular": "unverified"
         },
         "conclusionType": "unconfirmed",
-        "jointMotorcycleAdmissionStatus": "unknown"
+        "jointMotorcycleAdmissionStatus": "confirmed",
+        "publishedFeesRaw": "1時間無料、以後9時間ごと225円",
+        "hours": "24時間",
+        "hoursStatus": "confirmed",
+        "correctionAudit": "moped-filter-reconciliation-2026-11-22"
       },
       "publishedReview": {
         "release": "2026-11-22",
@@ -902905,8 +902920,8 @@
               "periodHours": 24,
               "zoneRaw": "一般区画",
               "vehicleClassRaw": "自転車",
-              "freeFirstMinutes": 0,
-              "freeMinutes": 0,
+              "freeFirstMinutes": 30,
+              "freeMinutes": 30,
               "sourceVehicleClass": "自転車"
             },
             {
@@ -902916,8 +902931,8 @@
               "periodHours": 24,
               "zoneRaw": "一般区画④",
               "vehicleClassRaw": "自転車",
-              "freeFirstMinutes": 0,
-              "freeMinutes": 0,
+              "freeFirstMinutes": 60,
+              "freeMinutes": 60,
               "sourceVehicleClass": "自転車"
             },
             {
@@ -902928,7 +902943,8 @@
               "zoneAndCustomerRaw": "一般区画\n≪一般≫",
               "vehicleClassRaw": "自転車",
               "applicationWindowRaw": "定期利用料金（毎月25日～月末まで、管理事務所で受付を行っています）",
-              "sourceVehicleClass": "自転車"
+              "sourceVehicleClass": "自転車",
+              "eligibilityRaw": "一般"
             },
             {
               "amountJPY": 1700,
@@ -902938,7 +902954,8 @@
               "zoneAndCustomerRaw": "一般区画\n≪学生≫",
               "vehicleClassRaw": "自転車",
               "applicationWindowRaw": "定期利用料金（毎月25日～月末まで、管理事務所で受付を行っています）",
-              "sourceVehicleClass": "自転車"
+              "sourceVehicleClass": "自転車",
+              "eligibilityRaw": "学生"
             },
             {
               "amountJPY": 5700,
@@ -902948,7 +902965,8 @@
               "zoneAndCustomerRaw": "一般区画\n≪一般≫",
               "vehicleClassRaw": "自転車",
               "applicationWindowRaw": "定期利用料金（毎月25日～月末まで、管理事務所で受付を行っています）",
-              "sourceVehicleClass": "自転車"
+              "sourceVehicleClass": "自転車",
+              "eligibilityRaw": "一般"
             },
             {
               "amountJPY": 4800,
@@ -902958,7 +902976,8 @@
               "zoneAndCustomerRaw": "一般区画\n≪学生≫",
               "vehicleClassRaw": "自転車",
               "applicationWindowRaw": "定期利用料金（毎月25日～月末まで、管理事務所で受付を行っています）",
-              "sourceVehicleClass": "自転車"
+              "sourceVehicleClass": "自転車",
+              "eligibilityRaw": "学生"
             }
           ],
           "classesRaw": [
@@ -903039,20 +903058,110 @@
           "conclusionType": "source_supported_with_scoped_conditions"
         },
         "moped": {
-          "admissionStatus": "unknown",
-          "temporaryStatus": "unverified",
-          "regularStatus": "unverified",
-          "tariffs": [],
+          "admissionStatus": "confirmed",
+          "checked": "2026-11-22",
+          "facilityMatched": true,
+          "temporaryStatus": "confirmed",
+          "regularStatus": "confirmed_application_required",
+          "tariffs": [
+            {
+              "amountJPY": 200,
+              "mode": "temporary",
+              "sourceKey": "osaka-facility-031",
+              "periodHours": 24,
+              "zoneRaw": "一般区画",
+              "vehicleClassRaw": "原動機付自転車",
+              "freeFirstMinutes": 30,
+              "freeMinutes": 30,
+              "sourceVehicleClass": "原動機付自転車"
+            },
+            {
+              "amountJPY": 3000,
+              "mode": "regular",
+              "sourceKey": "osaka-facility-031",
+              "periodMonths": 1,
+              "zoneAndCustomerRaw": "一般区画",
+              "vehicleClassRaw": "原動機付自転車",
+              "applicationWindowRaw": "定期利用料金（毎月25日～月末まで、管理事務所で受付を行っています）",
+              "sourceVehicleClass": "原動機付自転車",
+              "eligibilityRaw": "一般"
+            },
+            {
+              "amountJPY": 8500,
+              "mode": "regular",
+              "sourceKey": "osaka-facility-031",
+              "periodMonths": 3,
+              "zoneAndCustomerRaw": "一般区画",
+              "vehicleClassRaw": "原動機付自転車",
+              "applicationWindowRaw": "定期利用料金（毎月25日～月末まで、管理事務所で受付を行っています）",
+              "sourceVehicleClass": "原動機付自転車",
+              "eligibilityRaw": "一般"
+            }
+          ],
+          "classesRaw": [
+            "50cc以下、または125cc以下・最高出力4kW以下の原付"
+          ],
+          "sources": [
+            {
+              "url": "https://www.city.osaka.lg.jp/kensetsu/page/0000109572.html",
+              "checkedOn": "2026-11-22"
+            },
+            {
+              "url": "https://www.city.osaka.lg.jp/kensetsu/page/0000083062.html",
+              "checkedOn": "2026-11-22"
+            },
+            {
+              "url": "https://www.city.osaka.lg.jp/seisakukikakushitsu/page/0000680701.html",
+              "checkedOn": "2026-11-22"
+            }
+          ],
+          "currentConditionsRaw": [
+            "公式資料で確認した車種・指定区画・利用区分に限る情報です。入口、車体と設備の適合、現在の空き状況は個別にご確認ください。",
+            "原付・バイクの一部の車種・区画が対象です。全排気量の車両が利用できる意味ではありません。排気量・出力・車体寸法は公式案内をご確認ください。",
+            "定期利用は契約・申請条件と空き状況によります。料金表の掲載は、新規契約ができることを保証しません。",
+            "料金は記載された車種・区画・支払方法・利用期間に限ります。自転車料金を他車種の料金として転用していません。"
+          ],
+          "includeInVehicleResults": false,
+          "admissionReviewed": true,
           "entranceVerified": false,
-          "includeInVehicleResults": false
+          "scooterBayAtReferencePointVerified": false,
+          "allEngineSizesAllowed": false,
+          "vehicleFitVerified": false,
+          "jointReviewId": "facility:scooter-unified-2ba43e4e3fea1f2a",
+          "jointReviewRelease": "2026-11-20",
+          "sourceModeStatuses": {
+            "temporary": "confirmed_for_captioned_class_and_zone",
+            "regular": "confirmed_application_and_space_required"
+          },
+          "conclusionType": "source_supported_with_scoped_conditions",
+          "jointMotorcycleAdmissionStatus": "confirmed",
+          "category": "moped",
+          "specificClassEvidenceVerified": true
         },
         "motorcycle": {
-          "admissionStatus": "unknown",
+          "admissionStatus": "rejected",
           "temporaryStatus": "unverified",
           "regularStatus": "unverified",
           "tariffs": [],
           "entranceVerified": false,
-          "includeInVehicleResults": false
+          "includeInVehicleResults": false,
+          "sources": [
+            {
+              "url": "https://www.city.osaka.lg.jp/kensetsu/page/0000109572.html",
+              "checkedOn": "2026-11-22"
+            },
+            {
+              "url": "https://www.city.osaka.lg.jp/kensetsu/page/0000083062.html",
+              "checkedOn": "2026-11-22"
+            },
+            {
+              "url": "https://www.city.osaka.lg.jp/seisakukikakushitsu/page/0000680701.html",
+              "checkedOn": "2026-11-22"
+            }
+          ],
+          "classesRaw": [
+            "原付のみ"
+          ]
         }
       },
       "motorcycle": {
@@ -903069,8 +903178,8 @@
             "periodHours": 24,
             "zoneRaw": "一般区画",
             "vehicleClassRaw": "原動機付自転車",
-            "freeFirstMinutes": 0,
-            "freeMinutes": 0,
+            "freeFirstMinutes": 30,
+            "freeMinutes": 30,
             "sourceVehicleClass": "原動機付自転車"
           },
           {
@@ -903081,7 +903190,8 @@
             "zoneAndCustomerRaw": "一般区画",
             "vehicleClassRaw": "原動機付自転車",
             "applicationWindowRaw": "定期利用料金（毎月25日～月末まで、管理事務所で受付を行っています）",
-            "sourceVehicleClass": "原動機付自転車"
+            "sourceVehicleClass": "原動機付自転車",
+            "eligibilityRaw": "一般"
           },
           {
             "amountJPY": 8500,
@@ -903091,11 +903201,12 @@
             "zoneAndCustomerRaw": "一般区画",
             "vehicleClassRaw": "原動機付自転車",
             "applicationWindowRaw": "定期利用料金（毎月25日～月末まで、管理事務所で受付を行っています）",
-            "sourceVehicleClass": "原動機付自転車"
+            "sourceVehicleClass": "原動機付自転車",
+            "eligibilityRaw": "一般"
           }
         ],
         "classesRaw": [
-          "原付50cc以下または125cc以下かつ最高出力4kW以下の指定区画。通常125ccバイク全般を意味しない。"
+          "50cc以下、または125cc以下・最高出力4kW以下の原付"
         ],
         "sources": [
           {
@@ -903140,7 +903251,8 @@
           "motorcycle"
         ],
         "entranceVerified": false
-      }
+      },
+      "listingLabelKey": "nagaiMain"
     },
     "national-unverified-9d0fe61dde7f6590": {
       "reviewedCategories": {
@@ -903264,7 +903376,8 @@
           "bicycle"
         ],
         "entranceVerified": false
-      }
+      },
+      "listingLabelKey": "nagaiEastNorth"
     },
     "national-unverified-2c14d1c68bcd76f6": {
       "reviewedCategories": {
@@ -903388,7 +903501,8 @@
           "bicycle"
         ],
         "entranceVerified": false
-      }
+      },
+      "listingLabelKey": "nagaiWestSouth"
     },
     "national-unverified-0c4e313b14649fe4": {
       "reviewedCategories": {
@@ -903512,7 +903626,8 @@
           "bicycle"
         ],
         "entranceVerified": false
-      }
+      },
+      "listingLabelKey": "nagaiEastSouth"
     },
     "national-unverified-bbd82508ab23c05c": {
       "reviewedCategories": {
@@ -968700,7 +968815,7 @@
         },
         "privateElectricScooter": {
           "admissionStatus": "confirmed",
-          "checked": "2026-11-10",
+          "checked": "2026-11-22",
           "facilityMatched": true,
           "temporaryStatus": "confirmed",
           "regularStatus": "confirmed_application_required",
@@ -968729,8 +968844,8 @@
             }
           ],
           "currentConditionsRaw": [
-            "利用可の案内は、公式資料で確認できた車両区分・施設内の指定区画に限ります。料金、申請条件、入口、車体と設備の適合は個別にご確認ください。",
-            "月極契約の対象です。時間貸しの情報ではありません。新規契約は空き状況と運営者の承認によります。"
+            "ナンバープレート取得済みの特定小型原動機付自転車が対象です。",
+            "一時利用・定期利用可。定期利用は申込が必要です。"
           ],
           "includeInVehicleResults": false,
           "admissionReviewed": true,

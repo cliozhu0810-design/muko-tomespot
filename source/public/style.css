@@ -72,3 +72,7 @@ html:lang(zh-Hant) body,[lang="zh-Hant"]{font-family:"DM Sans","Noto Sans TC","P
 @media(max-width:760px){.detail:not([hidden]){height:calc(100% - 88px)}.detail-scroll{padding:18px}}
 
 .photo-slide[hidden]{display:none}.photo-controls{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:8px}.photo-controls button{border:1px solid var(--line);background:#fff;border-radius:50%;width:32px;height:32px;font-size:22px}.photo-count{font-size:12px;font-variant-numeric:tabular-nums}.reservation-callout{display:grid;gap:8px;background:#fff5df;border:1px solid #ebcd88;border-radius:12px;padding:14px;margin:12px 0}.detail .reservation-link{display:block;background:#a45a10;color:#fff;font-weight:700;font-size:15px;padding:12px;border-radius:8px;text-align:center}
+
+#engine-options label{display:grid;gap:6px}#engine-options select{width:100%;max-width:100%}#engine-options small{display:block;margin-top:6px;font-size:12px;line-height:1.6;color:var(--muted)}.facility-scope{font-size:12px;line-height:1.6;margin:6px 0}.facility-summary .facility-fee{line-height:1.7}
+
+.info-line{display:block}.info-line+.info-line{margin-top:5px}.card-requirements>strong{display:block;margin-bottom:5px}.card-requirements .info-line{font-weight:400}

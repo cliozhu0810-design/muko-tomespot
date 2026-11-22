@@ -702,10 +702,10 @@
     "en": "Mopeds & motorcycles"
   },
   "seeTariffs": {
-    "ja": "区画別の料金を確認",
-    "zh-Hans": "查看分区价目",
-    "zh-Hant": "查看分區價目",
-    "en": "View bay-specific fees"
+    "ja": "その他の料金は詳細へ",
+    "zh-Hans": "其他费用见详情",
+    "zh-Hant": "其他費用見詳情",
+    "en": "More rates in details"
   },
   "acceptedGeneric": {
     "ja": "利用条件あり",
@@ -744,7 +744,7 @@
     "en": "Depends on class / zone"
   },
   "notOffered": {
-    "ja": "提供なし",
+    "ja": "利用不可",
     "zh-Hans": "不提供",
     "zh-Hant": "不提供",
     "en": "Not offered"
@@ -1540,5 +1540,101 @@
     "zh-Hans": "存在名称和位置相近的记录，是否同一停车场尚未确认。",
     "zh-Hant": "有名稱及位置相近的紀錄，是否為同一停車場尚待確認。",
     "en": "Similar nearby listings exist; whether they are the same facility is unverified."
+  },
+  "noFreeTime": {
+    "ja": "無料時間なし",
+    "zh-Hans": "无免费时段",
+    "zh-Hant": "無免費時段",
+    "en": "No free period"
+  },
+  "admissionAvailable": {
+    "ja": "利用可（条件あり）",
+    "zh-Hans": "可停（有条件）",
+    "zh-Hant": "可停（有條件）",
+    "en": "Allowed with conditions"
+  },
+  "engineFilter": {
+    "ja": "排気量・車両区分",
+    "zh-Hans": "排量与车辆类别",
+    "zh-Hant": "排氣量與車輛類別",
+    "en": "Engine size / class"
+  },
+  "engineAll": {
+    "ja": "すべて",
+    "zh-Hans": "全部",
+    "zh-Hant": "全部",
+    "en": "All"
+  },
+  "engine50": {
+    "ja": "50cc以下の原付",
+    "zh-Hans": "50cc以下原付",
+    "zh-Hant": "50cc以下原付",
+    "en": "Moped up to 50cc"
+  },
+  "engineNew": {
+    "ja": "新基準原付（125cc以下・4kW以下）",
+    "zh-Hans": "新标准原付（≤125cc、≤4kW）",
+    "zh-Hant": "新基準原付（≤125cc、≤4kW）",
+    "en": "New-standard moped (≤125cc, ≤4kW)"
+  },
+  "engine125": {
+    "ja": "125ccバイク",
+    "zh-Hans": "125cc摩托车",
+    "zh-Hant": "125cc機車",
+    "en": "125cc motorcycle"
+  },
+  "engine250": {
+    "ja": "250ccバイク",
+    "zh-Hans": "250cc摩托车",
+    "zh-Hant": "250cc機車",
+    "en": "250cc motorcycle"
+  },
+  "engine400": {
+    "ja": "400ccバイク",
+    "zh-Hans": "400cc摩托车",
+    "zh-Hant": "400cc機車",
+    "en": "400cc motorcycle"
+  },
+  "engineUnknown": {
+    "ja": "排気量条件が未確認",
+    "zh-Hans": "排量条件待确认",
+    "zh-Hant": "排氣量條件待確認",
+    "en": "Engine limits unverified"
+  },
+  "engineHint": {
+    "ja": "該当排気量の条件が確認できる施設を表示。車体寸法・指定区画もご確認ください。",
+    "zh-Hans": "仅显示已确认适用排量的设施；请同时确认车身尺寸和指定区域。",
+    "zh-Hant": "僅顯示已確認適用排氣量的設施；請一併確認車身尺寸及指定區域。",
+    "en": "Shows facilities with confirmed engine-size conditions. Also check dimensions and designated bays."
+  },
+  "nagaiMain": {
+    "ja": "JR長居駅自転車駐車場（長居3丁目・北側）",
+    "zh-Hans": "JR长居站停车场（长居3丁目北侧）",
+    "zh-Hant": "JR長居站停車場（長居3丁目北側）",
+    "en": "JR Nagai Station parking (Nagai 3-chome north)"
+  },
+  "nagaiEastNorth": {
+    "ja": "JR長居駅自転車駐車場（長居東4丁目3付近）",
+    "zh-Hans": "JR长居站停车场（长居东4丁目3附近）",
+    "zh-Hant": "JR長居站停車場（長居東4丁目3附近）",
+    "en": "JR Nagai Station parking (near Nagaihigashi 4-3)"
+  },
+  "nagaiWestSouth": {
+    "ja": "JR長居駅自転車駐車場（長居3丁目・南側）",
+    "zh-Hans": "JR长居站停车场（长居3丁目南侧）",
+    "zh-Hant": "JR長居站停車場（長居3丁目南側）",
+    "en": "JR Nagai Station parking (Nagai 3-chome south)"
+  },
+  "nagaiEastSouth": {
+    "ja": "JR長居駅自転車駐車場（長居東4丁目・南側）",
+    "zh-Hans": "JR长居站停车场（长居东4丁目南侧）",
+    "zh-Hant": "JR長居站停車場（長居東4丁目南側）",
+    "en": "JR Nagai Station parking (Nagai east 4-chome south)"
+  },
+  "available": {
+    "ja": "利用可",
+    "zh-Hans": "可使用",
+    "zh-Hant": "可使用",
+    "en": "Available"
   }
 }
