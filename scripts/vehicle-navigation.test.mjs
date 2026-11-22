@@ -12,12 +12,12 @@ function setup(url='https://muko-tomespot.pages.dev/',saved='bicycle',entry){
 test('switching vehicles updates route, visible title and shareable filters without losing browser back state',()=>{
  const {c,location,history,heading,nodes}=setup();vm.runInContext('syncVehiclePresentation();state.vehicle="privateElectricScooter";locale="zh-Hant";updateVehicleUrl();syncVehiclePresentation();',c);
  let url=new URL(location.href);assert.equal(url.pathname,'/kickboard-parking');assert.equal(url.searchParams.get('q'),'京都駅');assert.equal(url.searchParams.get('ward'),'京都府');assert.equal(url.searchParams.get('lang'),'zh-Hant');assert.equal(heading.textContent,'電動滑板車停車場');assert.equal(nodes.get('link[rel="canonical"]').href,'https://muko-tomespot.pages.dev/kickboard-parking');
- vm.runInContext('state.vehicle="motorcycle";updateVehicleUrl();syncVehiclePresentation();',c);assert.equal(new URL(location.href).pathname,'/motorcycle-parking');assert.equal(heading.textContent,'原付與機車停車場');
+ vm.runInContext('state.vehicle="motorcycle";updateVehicleUrl();syncVehiclePresentation();',c);assert.equal(new URL(location.href).pathname,'/motorcycle-parking');assert.equal(heading.textContent,'機車停車場（含日本原付）');
  history.back();vm.runInContext('restoreVehicleFromUrl()',c);assert.equal(vm.runInContext('state.vehicle',c),'privateElectricScooter');assert.equal(heading.textContent,'電動滑板車停車場');
  history.back();vm.runInContext('restoreVehicleFromUrl()',c);assert.equal(new URL(location.href).pathname,'/');assert.equal(vm.runInContext('state.vehicle',c),'bicycle');assert.equal(heading.textContent,'自行車停車場');
 });
 test('dedicated entry defaults survive reload and all headings follow the selected language',()=>{
- const headings={bicycle:['自転車の駐輪場','自行车停车场','自行車停車場','Bicycle parking'],privateElectricScooter:['電動キックボードの駐輪場','电动滑板车停车场','電動滑板車停車場','Electric scooter parking'],motorcycle:['原付・バイクの駐輪場','原付与摩托车停车场','原付與機車停車場','Moped and motorcycle parking']};
+ const headings={bicycle:['自転車の駐輪場','自行车停车场','自行車停車場','Bicycle parking'],privateElectricScooter:['電動キックボードの駐輪場','电动滑板车停车场','電動滑板車停車場','Electric scooter parking'],motorcycle:['原付・バイクの駐車場','原付与摩托车停车场','機車停車場（含日本原付）','Moped and motorcycle parking']};
  for(const vehicle of Object.keys(headings)){const {c,heading}=setup('https://muko-tomespot.pages.dev/','bicycle',{vehicle});assert.equal(vm.runInContext('state.vehicle',c),vehicle);for(const [i,lang]of ['ja','zh-Hans','zh-Hant','en'].entries()){c.language=lang;vm.runInContext('locale=language;syncVehiclePresentation()',c);assert.equal(heading.textContent,headings[vehicle][i]);}}
 });
 
