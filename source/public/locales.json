@@ -8,7 +8,7 @@
   "description": {
     "ja": "全国の駐輪場を名称・位置から探せます。未確認の候補は利用可否・料金・入口が未確認であることを表示しています。",
     "zh-Hans": "按名称和地图位置查找日本全国停车场候选，未核实地点明确标记，车型、费用和入口须进一步确认。",
-    "zh-Hant": "依名稱和地圖位置尋找日本全國停車場候選，未核實地點明確標示，車種、費用及入口仍待確認。",
+    "zh-Hant": "依名稱和地圖位置尋找日本全國停車場候選，尚待確認地點明確標示，車種、費用及入口仍待確認。",
     "en": "Find parking candidates across Japan by name and map location. Unverified listings have unconfirmed vehicle access, fees and entrances."
   },
   "home": {
@@ -33,7 +33,7 @@
     "ja": "駐輪場の検索と一覧",
     "zh-Hans": "停车场搜索与列表",
     "en": "Parking search and results",
-    "zh-Hant": "停車場搜索與列表"
+    "zh-Hant": "停車場搜尋與列表"
   },
   "eyebrow": {
     "ja": "小さな乗りものにも、安心できる場所を。",
@@ -103,9 +103,9 @@
   },
   "monthly": {
     "ja": "定期利用",
-    "zh-Hans": "定期停车",
-    "zh-Hant": "定期停車",
-    "en": "Permit parking"
+    "zh-Hans": "长期停车",
+    "zh-Hant": "長期停車",
+    "en": "Long-term parking"
   },
   "annual": {
     "ja": "年度・年期登録",
@@ -116,13 +116,13 @@
   "showUnknown": {
     "ja": "この車種で利用可否未確認の施設も表示",
     "zh-Hans": "显示此车型待确认场地",
-    "zh-Hant": "顯示此車型待確認場地",
+    "zh-Hant": "顯示此車種待確認場地",
     "en": "Include unverified locations for this vehicle"
   },
   "unknownHint": {
     "ja": "車種ごとに確認。別の車種の利用可・料金は適用しません",
     "zh-Hans": "不同车型独立核实，不套用其他车型许可或价格",
-    "zh-Hant": "不同車型獨立核實，不套用其他車型許可或價格",
+    "zh-Hant": "不同車種獨立確認，不套用其他車種許可或價格",
     "en": "Access and fees are verified separately for each vehicle"
   },
   "footer": {
@@ -163,14 +163,14 @@
   },
   "permit": {
     "ja": "定期利用・条件付き",
-    "zh-Hans": "定期 / 条件待核",
-    "zh-Hant": "定期 / 條件待核",
-    "en": "Permit / conditional"
+    "zh-Hans": "长期停车／有条件",
+    "zh-Hant": "長期停車／有條件",
+    "en": "Long-term / conditional"
   },
   "pending": {
     "ja": "未確認",
     "zh-Hans": "未核实",
-    "zh-Hant": "未核實",
+    "zh-Hant": "尚待確認",
     "en": "Unverified"
   },
   "mapNote": {
@@ -218,7 +218,7 @@
   "aboutIntro": {
     "ja": "東京の自転車・マイ電動キックボード・原付/バイクの駐輪情報を、車種別に確認して掲載しています。",
     "zh-Hans": "东京自行车、私人电动滑板车和原付/摩托车停车资料，各车型独立核实。",
-    "zh-Hant": "東京自行車、私人電動滑板車和原付/摩托車停車資料，各車型獨立核實。",
+    "zh-Hant": "東京自行車、自有電動滑板車和原付/摩托車停車資料，各車種獨立確認。",
     "en": "Tokyo parking for bicycles, private scooters and mopeds/motorcycles, verified separately by vehicle."
   },
   "acceptedHeading": {
@@ -230,7 +230,7 @@
   "acceptedBody": {
     "ja": "選択した車種で公式資料に利用根拠がある施設を表示します。バイクは掲載クラス・排気量・区画に限定。緑は一時利用確認済み、琥珀色は定期または利用方法の追加確認が必要な施設です。定期は月単位とは限らず、年度登録は別に扱います。",
     "zh-Hans": "按当前车型的官方依据显示可用场地。摩托车仅限列明类别、排量和分区。绿色为已确认临停，琥珀色为定期或模式仍需核实；定期不一定按月，年度登记单列。",
-    "zh-Hant": "按目前車型的官方依據顯示可用場地。摩托車僅限列明類別、排量和分區。綠色為已確認臨停，琥珀色為定期或模式仍需核實；定期不一定按月，年度登記單列。",
+    "zh-Hant": "按目前車種的官方依據顯示可用場地。摩托車僅限列明類別、排量和分區。綠色為已確認臨停，琥珀色為定期或模式仍需確認；定期不一定按月，年度登記單列。",
     "en": "Listings rely on evidence for the selected vehicle. Motorcycle access is limited to listed classes, engine sizes and zones. Green means verified short stay; amber means permits or further mode checks. Permits are not always monthly; annual registration is separate."
   },
   "unknownHeading": {
@@ -242,7 +242,7 @@
   "unknownBody": {
     "ja": "他車種の利用可・料金から推定しません。未確認・資料が矛盾する利用方法は対応する絞り込みに含めません。",
     "zh-Hans": "不从其他车型的许可或价格推断。未知或资料冲突的使用方式不进入对应模式筛选。",
-    "zh-Hant": "不從其他車型的許可或價格推斷。未知或資料衝突的使用方式不進入對應模式篩選。",
+    "zh-Hant": "不從其他車種的許可或價格推斷。未知或資料衝突的使用方式不進入對應模式篩選。",
     "en": "No access or price inference across vehicles. Unverified or conflicting modes are excluded from their mode filters."
   },
   "sourceHeading": {
@@ -270,10 +270,10 @@
     "zh-Hant": "{n} 個結果"
   },
   "verified": {
-    "ja": "{n} 件で利用可を確認",
-    "zh-Hans": "{n} 个官方明确接受",
-    "en": "{n} verified",
-    "zh-Hant": "{n} 個官方明確接受"
+    "ja": "利用可能と確認できた駐輪場：{n}件",
+    "zh-Hans": "已确认接受此车型：{n}处",
+    "zh-Hant": "已確認可停放此車種：{n}處",
+    "en": "{n} locations confirmed to accept this vehicle type"
   },
   "byDistance": {
     "ja": " · 距離順",
@@ -309,7 +309,7 @@
     "ja": "車種条件は未確認",
     "zh-Hans": "车型条件未核实",
     "en": "Vehicle access unverified",
-    "zh-Hant": "車型條件未覈實"
+    "zh-Hant": "車種條件尚待確認"
   },
   "listLimit": {
     "ja": "一覧は最初の100件を表示。地図は全結果を表示します。駅名やエリアで絞り込めます。",
@@ -342,10 +342,10 @@
     "zh-Hant": "清除篩選"
   },
   "scooterFeeUnknown": {
-    "ja": "この車種の料金は要確認",
-    "zh-Hans": "此车型费用待确认",
-    "zh-Hant": "此車型費用待確認",
-    "en": "Vehicle-specific fee unverified"
+    "ja": "この車種の料金は未確認",
+    "zh-Hans": "此车型收费尚未确认",
+    "zh-Hant": "此車種收費尚待確認",
+    "en": "Fees for this vehicle type are unverified"
   },
   "feeConditional": {
     "ja": "区画・条件による",
@@ -387,12 +387,12 @@
     "ja": "対象車種",
     "zh-Hans": "适用车型",
     "en": "Eligible vehicles",
-    "zh-Hant": "適用車型"
+    "zh-Hant": "適用車種"
   },
   "vehicleUnknown": {
     "ja": "この車種の利用可否は未確認",
     "zh-Hans": "此车型准入待确认",
-    "zh-Hant": "此車型准入待確認",
+    "zh-Hant": "此車種准入待確認",
     "en": "Access for this vehicle is unverified"
   },
   "usage": {
@@ -405,7 +405,7 @@
     "ja": "未確認：利用可能とは限りません",
     "zh-Hans": "未核实，不能视作可停",
     "en": "Unverified; do not assume access",
-    "zh-Hant": "未覈實，不能視作可停"
+    "zh-Hant": "尚待確認，不能視作可停"
   },
   "fee": {
     "ja": "駐輪料金",
@@ -428,7 +428,7 @@
   "hoursUnknown": {
     "ja": "この車種の利用時間は未確認",
     "zh-Hans": "此车型使用时间未核实",
-    "zh-Hant": "此車型使用時間未核實",
+    "zh-Hant": "此車種使用時間尚待確認",
     "en": "Hours for this vehicle are unverified"
   },
   "phone": {
@@ -441,12 +441,12 @@
     "ja": "利用前に車種・区画・申請条件を公式資料で確認してください。自転車の割引はキックボードに適用されるとは限りません。",
     "zh-Hans": "使用前请核对官方车型、分区与申请条件。自行车优惠不自动适用于滑板车。",
     "en": "Check official vehicle, zone and application conditions before use. Bicycle discounts may not apply to scooters.",
-    "zh-Hant": "使用前請核對官方車型、分區與申請條件。自行車優惠不自動適用於滑板車。"
+    "zh-Hant": "使用前請核對官方車種、分區與申請條件。自行車優惠不自動適用於滑板車。"
   },
   "pendingNote": {
     "ja": "この車種の利用可否は未確認です。利用前に管理者へ確認してください。",
     "zh-Hans": "此车型的准入尚未确认，使用前请向管理方核实。",
-    "zh-Hant": "此車型的准入尚未確認，使用前請向管理方核實。",
+    "zh-Hant": "此車種的准入尚未確認，使用前請向管理方確認。",
     "en": "Access for this vehicle is unverified. Check with the operator before use."
   },
   "originalNotes": {
@@ -549,7 +549,7 @@
     "ja": "入口位置・リアルタイム空き状況は未確認",
     "zh-Hans": "入口位置与实时空位未核实",
     "en": "Entrance and live availability unverified",
-    "zh-Hant": "入口位置與實時空位未覈實"
+    "zh-Hant": "入口位置與實時空位尚待確認"
   },
   "latest": {
     "ja": "今回の確認：{n}施設",
@@ -639,7 +639,7 @@
     "ja": "位置情報は利用できません。駅名や住所で検索してください。",
     "zh-Hans": "浏览器不支持定位，请搜索车站或地址。",
     "en": "Location is unavailable. Search by station or address.",
-    "zh-Hant": "瀏覽器不支持定位，請搜索車站或地址。"
+    "zh-Hant": "瀏覽器不支持定位，請搜尋車站或地址。"
   },
   "yourLocation": {
     "ja": "現在地",
@@ -657,7 +657,7 @@
     "ja": "位置を取得できません。ブラウザーの権限を確認するか、駅名で検索してください。",
     "zh-Hans": "无法获取位置，请检查定位权限或搜索车站。",
     "en": "Unable to locate you. Check browser permissions or search by station.",
-    "zh-Hant": "無法獲取位置，請檢查定位權限或搜索車站。"
+    "zh-Hant": "無法獲取位置，請檢查定位權限或搜尋車站。"
   },
   "zoomIn": {
     "ja": "拡大",
@@ -680,14 +680,14 @@
   "vehiclePicker": {
     "ja": "車種",
     "zh-Hans": "车型",
-    "zh-Hant": "車型",
+    "zh-Hant": "車種",
     "en": "Vehicle"
   },
   "scooterLabel": {
     "ja": "電動キックボード",
-    "zh-Hans": "私人电动滑板车",
-    "zh-Hant": "私人電動滑板車",
-    "en": "Private e-scooter"
+    "zh-Hans": "自有电动滑板车",
+    "zh-Hant": "自有電動滑板車",
+    "en": "Privately owned e-scooter"
   },
   "bicycleLabel": {
     "ja": "自転車",
@@ -697,8 +697,8 @@
   },
   "motorcycleLabel": {
     "ja": "原付・バイク",
-    "zh-Hans": "轻便摩托车・摩托车",
-    "zh-Hant": "輕型機車・機車",
+    "zh-Hans": "轻便摩托车（原付）与摩托车",
+    "zh-Hant": "機車（含日本原付車種）",
     "en": "Mopeds & motorcycles"
   },
   "seeTariffs": {
@@ -708,28 +708,28 @@
     "en": "View bay-specific fees"
   },
   "acceptedGeneric": {
-    "ja": "利用可・条件を確認",
-    "zh-Hans": "可停 · 查看条件",
-    "zh-Hant": "可停 · 查看條件",
-    "en": "Accepted · Check conditions"
+    "ja": "利用条件あり",
+    "zh-Hans": "有使用条件",
+    "zh-Hant": "有使用條件",
+    "en": "Conditions apply"
   },
   "vehicleConditions": {
     "ja": "掲載は対象車種・指定区画に限ります。排気量・階・申請資格・利用時間を確認してください。他車種の料金や無料時間は適用しません。",
     "zh-Hans": "仅适用于列明车型及分区，请核对排量、楼层、申请资格和使用时间；不套用其他车型价格或免费时段。",
-    "zh-Hant": "僅適用於列明車型及分區，請核對排量、樓層、申請資格和使用時間；不套用其他車型價格或免費時段。",
+    "zh-Hant": "僅適用於列明車種及分區，請核對排量、樓層、申請資格和使用時間；不套用其他車種價格或免費時段。",
     "en": "Applies only to listed vehicle classes and zones. Check engine size, floor, eligibility and hours. Other vehicle rates and free periods do not apply."
   },
   "classScope": {
-    "ja": "対象クラス（出典表記）",
-    "zh-Hans": "接受类别（来源原文）",
-    "zh-Hant": "接受類別（來源原文）",
-    "en": "Accepted classes (source wording)"
+    "ja": "停められる車両・サイズ",
+    "zh-Hans": "可停放车辆与尺寸",
+    "zh-Hant": "可停放車輛與尺寸",
+    "en": "Vehicle requirements"
   },
   "classUnspecified": {
-    "ja": "排気量・車両条件は公式資料で確認",
-    "zh-Hans": "排量及车辆条件请查官方资料",
-    "zh-Hant": "排量及車輛條件請查官方資料",
-    "en": "Check official engine-size and vehicle conditions"
+    "ja": "車種・サイズ条件は未確認",
+    "zh-Hans": "车辆类别与尺寸条件尚未确认",
+    "zh-Hant": "車輛類別與尺寸條件尚待確認",
+    "en": "Vehicle classes and size limits are unverified"
   },
   "modeConflict": {
     "ja": "資料が不一致・利用前に確認",
@@ -740,7 +740,7 @@
   "modeDependent": {
     "ja": "車種・区画ごとに異なる",
     "zh-Hans": "按车型或分区确定",
-    "zh-Hant": "按車型或分區確定",
+    "zh-Hant": "按車種或分區確定",
     "en": "Depends on class / zone"
   },
   "notOffered": {
@@ -764,7 +764,7 @@
   "modeUnknown": {
     "ja": "未確認",
     "zh-Hans": "未核实",
-    "zh-Hant": "未核實",
+    "zh-Hant": "尚待確認",
     "en": "Unverified"
   },
   "modeConfirmed": {
@@ -776,25 +776,25 @@
   "profileModes": {
     "ja": "車種別の利用方法",
     "zh-Hans": "车型独立使用方式",
-    "zh-Hant": "車型獨立使用方式",
+    "zh-Hant": "車種獨立使用方式",
     "en": "Vehicle-specific parking options"
   },
   "tariffsTitle": {
     "ja": "車種別の料金・区画",
-    "zh-Hans": "车型专属价目与分区",
-    "zh-Hant": "車型專屬價目與分區",
-    "en": "Vehicle-specific rates and zones"
+    "zh-Hans": "各车型收费与停车区域",
+    "zh-Hant": "各車種收費與停車區域",
+    "en": "Rates and parking areas by vehicle type"
   },
   "tariffNotice": {
     "ja": "各行の車種・区画・資格が一致する場合のみ適用。最安値を自動適用しません。日単位と24時間は別です。原文表記を併記しています。",
     "zh-Hans": "仅在车型、分区及资格对应时适用，不自动取最低价；按日不等于24小时，保留来源原文。",
-    "zh-Hant": "僅在車型、分區及資格對應時適用，不自動取最低價；按日不等於24小時，保留來源原文。",
+    "zh-Hant": "僅在車種、分區及資格對應時適用，不自動取最低價；按日不等於24小時，保留來源原文。",
     "en": "Use a row only when vehicle, zone and eligibility match. No automatic lowest-rate selection. Per day is not necessarily 24 hours. Source wording is retained."
   },
   "noTariff": {
     "ja": "この車種に適用できる料金は未確認。無料とは限りません。",
     "zh-Hans": "尚未核实此车型适用收费，不代表免费。",
-    "zh-Hant": "尚未核實此車型適用收費，不代表免費。",
+    "zh-Hant": "尚尚待確認此車種適用收費，不代表免費。",
     "en": "Applicable fees are unverified. This does not mean free parking."
   },
   "sourceWording": {
@@ -896,13 +896,13 @@
   "importInfo": {
     "ja": "三車種更新012 · 確認日 {date} · 選択中の車種の集計",
     "zh-Hans": "三车型更新012 · 核对 {date} · 以下为当前车型统计",
-    "zh-Hant": "三車型更新012 · 核對 {date} · 以下為目前車型統計",
+    "zh-Hant": "三車種更新012 · 核對 {date} · 以下為目前車種統計",
     "en": "Three-vehicle update 012 · Checked {date} · Counts for selected vehicle"
   },
   "commentsTitle": {
     "ja": "利用者のコメント",
     "zh-Hans": "用户留言",
-    "zh-Hant": "用戶留言",
+    "zh-Hant": "使用者留言",
     "en": "Visitor comments"
   },
   "commentsEmpty": {
@@ -919,8 +919,8 @@
   },
   "commentPolicy": {
     "ja": "登録不要。文章または写真を送信できます。内容は確認後に公開され、すぐには表示されません。",
-    "zh-Hans": "无需注册，可提交文字或照片。内容先存入后台，审核通过后才会公开。",
-    "zh-Hant": "無需註冊，可提交文字或照片。內容先存入後台，審核通過後才會公開。",
+    "zh-Hans": "无需注册，可提交文字或照片。提交后经审核公开，不会立即显示。",
+    "zh-Hant": "無需註冊，可提交文字或照片。送出後經審核公開，不會立即顯示。",
     "en": "No registration needed. Submit text or photos. Submissions are stored for review and are not published immediately."
   },
   "commentBody": {
@@ -1004,7 +1004,7 @@
   "photoAlt": {
     "ja": "投稿された写真 {n}",
     "zh-Hans": "用户提交的照片 {n}",
-    "zh-Hant": "用戶提交的照片 {n}",
+    "zh-Hant": "使用者提交的照片 {n}",
     "en": "Submitted photo {n}"
   },
   "removePhoto": {
@@ -1196,7 +1196,7 @@
   "stationSuggestions": {
     "ja": "駅の候補",
     "zh-Hans": "车站候选",
-    "zh-Hant": "車站候選",
+    "zh-Hant": "車站建議",
     "en": "Station suggestions"
   },
   "stationSuffix": {
@@ -1226,7 +1226,7 @@
   "verificationDate": {
     "ja": "資料確認日：",
     "zh-Hans": "资料核实日期：",
-    "zh-Hant": "資料核實日期：",
+    "zh-Hant": "資料確認日期：",
     "en": "Source checked:"
   },
   "verificationMeaning": {
@@ -1236,10 +1236,10 @@
     "en": "Date the listed sources were reviewed, separate from their publication dates and live availability."
   },
   "reportedUse": {
-    "ja": "利用報告あり（参考）",
-    "zh-Hans": "有使用报告（参考）",
-    "zh-Hant": "有使用報告（參考）",
-    "en": "Use reported (reference)"
+    "ja": "参考情報あり・受入未確認",
+    "zh-Hans": "有参考信息，是否允许停放待确认",
+    "zh-Hant": "有參考資訊，是否可停放尚待確認",
+    "en": "Reference information · acceptance unverified"
   },
   "detailDisclaimerTitle": {
     "ja": "免責事項",
@@ -1339,14 +1339,14 @@
   },
   "discoveryPositionNote": {
     "ja": "利用可否・料金・入口は未確認です。",
-    "zh-Hans": "准入、费用和入口尚未核实。",
-    "zh-Hant": "准入、費用和入口尚未核實。",
-    "en": "Access, fees and entrance are unverified."
+    "zh-Hans": "是否允许停放、收费及入口位置尚未确认。",
+    "zh-Hant": "是否可停放、收費及入口位置尚待確認。",
+    "en": "Vehicle acceptance, fees and entrance location are unverified."
   },
   "mapListings": {
     "ja": "{n}件表示 · 未確認{pending}件",
     "zh-Hans": "显示{n}处 · 未核实{pending}处",
-    "zh-Hant": "顯示{n}處 · 未核實{pending}處",
+    "zh-Hant": "顯示{n}處 · 尚待確認{pending}處",
     "en": "{n} locations · {pending} unverified"
   },
   "unnamedMotorcycleParking": {
@@ -1369,8 +1369,80 @@
   },
   "browseAreas": {
     "ja": "地域・駅から探す",
-    "zh-Hans": "按地区、车站查找",
-    "zh-Hant": "依地區、車站查找",
+    "zh-Hans": "按地区或车站查找",
+    "zh-Hant": "依地區或車站尋找",
     "en": "Areas & stations"
+  },
+  "translationPending": {
+    "ja": "翻訳未確認。原文と管理者の案内をご確認ください。",
+    "zh-Hans": "此说明的翻译尚未核实，请查看原文并向管理方确认。",
+    "zh-Hant": "此說明的翻譯尚待確認，請查看原文並向管理單位確認。",
+    "en": "Translation not yet verified. Check the original text with the operator."
+  },
+  "sourceOriginal": {
+    "ja": "出典の原文",
+    "zh-Hans": "来源原文",
+    "zh-Hant": "來源原文",
+    "en": "Original source text"
+  },
+  "noVerified": {
+    "ja": "この条件では、受入を確認できた駐輪場はありません。以下は未確認の候補です。",
+    "zh-Hans": "当前条件下没有已确认接受此车型的停车场。以下仅为待确认候选。",
+    "zh-Hant": "目前條件下沒有已確認可停放此車種的停車場。以下僅為待確認地點。",
+    "en": "No locations are confirmed to accept this vehicle type under these filters. The results below are unverified candidates."
+  },
+  "verifiedOnly": {
+    "ja": "確認済みのみ",
+    "zh-Hans": "只看已确认",
+    "zh-Hant": "僅顯示已確認",
+    "en": "Confirmed acceptance only"
+  },
+  "knownFeesOnly": {
+    "ja": "料金が分かる駐輪場",
+    "zh-Hans": "收费已知",
+    "zh-Hant": "收費已知",
+    "en": "Known fees"
+  },
+  "freeTimeOnly": {
+    "ja": "無料時間あり",
+    "zh-Hans": "有免费时段",
+    "zh-Hant": "有免費時段",
+    "en": "Free parking period"
+  },
+  "sortLabel": {
+    "ja": "並び順",
+    "zh-Hans": "排序",
+    "zh-Hant": "排序",
+    "en": "Sort by"
+  },
+  "sortDefault": {
+    "ja": "確認済み・料金情報を優先",
+    "zh-Hans": "优先已确认及收费已知",
+    "zh-Hant": "優先已確認且收費已知",
+    "en": "Verified, then known fees"
+  },
+  "sortDistance": {
+    "ja": "駅・現在地から近い順（直線距離）",
+    "zh-Hans": "距离车站／当前位置最近（直线距离）",
+    "zh-Hant": "距車站／目前位置最近（直線距離）",
+    "en": "Nearest station / current location (straight line)"
+  },
+  "distanceHint": {
+    "ja": "駅を選択するか現在地を取得すると距離順に表示します。",
+    "zh-Hans": "选择车站或定位后，可按直线距离排序。",
+    "zh-Hant": "選擇車站或定位後，可依直線距離排序。",
+    "en": "Select a station or use your location to sort by straight-line distance."
+  },
+  "straightDistance": {
+    "ja": "直線 {n} km",
+    "zh-Hans": "直线 {n} 公里",
+    "zh-Hant": "直線 {n} 公里",
+    "en": "{n} km straight line"
+  },
+  "possibleDuplicate": {
+    "ja": "名称・位置が近い候補があります。同一施設か未確認です。",
+    "zh-Hans": "存在名称和位置相近的记录，是否同一停车场尚未确认。",
+    "zh-Hant": "有名稱及位置相近的紀錄，是否為同一停車場尚待確認。",
+    "en": "Similar nearby listings exist; whether they are the same facility is unverified."
   }
 }
