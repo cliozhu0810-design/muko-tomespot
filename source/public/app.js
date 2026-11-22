@@ -80,6 +80,7 @@ function dt(text){
  const raw=String(text??'');if(!raw)return '';
  const translated=dataMessages[raw]?.[locale];
  if(translated&&localizedTextSafe(translated,locale))return translated;
+ if(/\b[a-z]+(?:_[a-z0-9]+)+\b/.test(raw))return t('translationPending');
  // UI strings and already-translated data may be passed through more than once.
  if(localizedValues(messages,locale).has(raw)||localizedValues(dataMessages,locale).has(raw)&&localizedTextSafe(raw,locale))return raw;
  if(locale==='ja'&&localizedTextSafe(raw,'ja'))return raw;

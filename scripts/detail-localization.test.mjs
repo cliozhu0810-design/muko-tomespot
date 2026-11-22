@@ -7,7 +7,7 @@ import {fileURLToPath} from 'node:url';
 const root=fileURLToPath(new URL('..',import.meta.url));
 const map=createMapListings(root),c=map.context;
 test('untranslated research prose never leaks into another selected language',()=>{
- for(const [lang,raw] of [['ja','仅限自行车，车架尺寸待确认'],['zh-Hans','自転車専用、定期利用のみ'],['zh-Hant','原動機付自転車の料金'],['en','駐輪場の利用条件']]){
+ for(const [lang,raw] of [['ja','仅限自行车，车架尺寸待确认'],['zh-Hans','自転車専用、定期利用のみ'],['zh-Hant','原動機付自転車の料金'],['en','駐輪場の利用条件'],['ja','pre_use_inspection_required'],['zh-Hans','pre_use_inspection_required']]){
   Object.assign(c,{lang,raw});assert.equal(vm.runInContext('locale=lang;dt(raw)',c),map.locales.translationPending[lang]);
  }
  for(const lang of ['ja','zh-Hans','zh-Hant','en']){c.lang=lang;assert.equal(vm.runInContext("locale=lang;dt('¥100 / 24h')",c),'¥100 / 24h');}
