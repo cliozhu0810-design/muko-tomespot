@@ -1390,5 +1390,89 @@
     "zh-Hans": "查看评论原文",
     "zh-Hant": "查看評論原文",
     "en": "Show comment in its original language"
+  },
+  "allFacilityVehicles": {
+    "ja": "この駐輪場の車種・料金",
+    "zh-Hans": "此停车场的车型与收费",
+    "zh-Hant": "此停車場的車種與收費",
+    "en": "Vehicles and fees at this facility"
+  },
+  "photoUnavailable": {
+    "ja": "現地写真は未掲載",
+    "zh-Hans": "暂无实景照片",
+    "zh-Hant": "暫無實景照片",
+    "en": "No facility photo yet"
+  },
+  "viewMapPhotos": {
+    "ja": "Google マップの施設詳細",
+    "zh-Hans": "Google 地图地点详情",
+    "zh-Hant": "Google 地圖地點詳情",
+    "en": "Place details on Google Maps"
+  },
+  "motorcycleOnlyLabel": {
+    "ja": "自動二輪（原付を除く）",
+    "zh-Hans": "摩托车（不含日本原付）",
+    "zh-Hant": "機車（不含日本原付）",
+    "en": "Motorcycles (excluding mopeds)"
+  },
+  "facilityPhotos": {
+    "ja": "駐輪場の写真",
+    "zh-Hans": "停车场照片",
+    "zh-Hant": "停車場照片",
+    "en": "Facility photos"
+  },
+  "photoentrance": {
+    "ja": "入口",
+    "zh-Hans": "入口",
+    "zh-Hant": "入口",
+    "en": "Entrance"
+  },
+  "photoparking": {
+    "ja": "駐輪スペース",
+    "zh-Hans": "停车区",
+    "zh-Hant": "停車區",
+    "en": "Parking area"
+  },
+  "photoexterior": {
+    "ja": "外観",
+    "zh-Hans": "外观",
+    "zh-Hant": "外觀",
+    "en": "Exterior"
+  },
+  "photoCredit": {
+    "ja": "写真の出典",
+    "zh-Hans": "照片来源",
+    "zh-Hant": "照片來源",
+    "en": "Photo source"
+  },
+  "previousPhoto": {
+    "ja": "前の写真",
+    "zh-Hans": "上一张",
+    "zh-Hant": "上一張",
+    "en": "Previous photo"
+  },
+  "nextPhoto": {
+    "ja": "次の写真",
+    "zh-Hans": "下一张",
+    "zh-Hant": "下一張",
+    "en": "Next photo"
+  },
+  "reservationRequired": {
+    "ja": "予約が必要です",
+    "zh-Hans": "需提前预约",
+    "zh-Hant": "需提前預約",
+    "en": "Reservation required"
+  },
+  "reserveParking": {
+    "ja": "予約ページへ",
+    "zh-Hans": "前往预约",
+    "zh-Hant": "前往預約",
+    "en": "Reserve this parking space"
+  },
+  "bookingFeeShort": {
+    "ja": "{minutes}分 {amount}円〜 / 1日 {day}円〜",
+    "zh-Hans": "{minutes}分钟{amount}日元起 / 每天{day}日元起",
+    "zh-Hant": "{minutes}分鐘{amount}日圓起 / 每天{day}日圓起",
+    "en": "From ¥{amount} / {minutes} min · From ¥{day} / day"
   }
 }

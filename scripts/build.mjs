@@ -1,5 +1,6 @@
 import {unifyHeaders} from './shared-header.mjs';
 import fs from 'node:fs';
+import {createHash} from 'node:crypto';
 import path from 'node:path';
 import {stripTypeScriptTypes} from 'node:module';
 import {fileURLToPath} from 'node:url';
@@ -245,6 +246,14 @@ export function buildFrontend({apiBase,siteUrl,output=path.join(root,'dist')}={}
   writeKickboardMap({output,siteUrl,...searchPages['kickboard-parking.html']});
   writeMotorcycleMap({output,siteUrl});
   writeBicycleMap({output,siteUrl});
+  // Version frontend assets so preview reloads also pick up changed translations.
+  const assets=['app.js','style.css','locales.json'];
+  const versions=Object.fromEntries(assets.map(name=>[name,createHash('sha256').update(fs.readFileSync(path.join(output,name))).digest('hex').slice(0,10)]));
+  const appPath=path.join(output,'app.js');
+  fs.writeFileSync(appPath,fs.readFileSync(appPath,'utf8').replaceAll("'locales.json'","'locales.json?v="+versions['locales.json']+"'"));
+  versions['app.js']=createHash('sha256').update(fs.readFileSync(appPath)).digest('hex').slice(0,10);
+  function versionPages(dir){for(const item of fs.readdirSync(dir,{withFileTypes:true})){const file=path.join(dir,item.name);if(item.isDirectory()){versionPages(file);continue;}if(!file.endsWith('.html'))continue;let html=fs.readFileSync(file,'utf8');for(const name of ['app.js','style.css'])html=html.replaceAll('"'+name+'"','"'+name+'?v='+versions[name]+'"');fs.writeFileSync(file,html);}}
+  versionPages(output);
   return output;
 }
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)) {
