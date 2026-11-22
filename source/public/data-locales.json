@@ -5691,5 +5691,35 @@
     "zh-Hans": "适用于Showa站前驻轮场，未套用附近汽车停车场的费用。",
     "zh-Hant": "適用於Showa站前駐輪場，未套用附近汽車停車場的費用。",
     "en": "Applies to the Showa station-front cycle parking facility. Prices from nearby car parks have not been applied."
+  },
+  "明確な禁止や設備の不適合が確認されていないため、暫定的に利用可能としています。公式の受入確認ではありません。指定区画・契約・利用資格・車体寸法の条件をご確認ください。": {
+    "ja": "明確な禁止や設備の不適合が確認されていないため、暫定的に利用可能としています。公式の受入確認ではありません。指定区画・契約・利用資格・車体寸法の条件をご確認ください。",
+    "zh-Hans": "未发现明确禁止或已确认不兼容的设备，按放宽规则暂定可以；这不是官方许可。请确认指定区域、合同、使用资格及车辆尺寸条件。",
+    "zh-Hant": "未發現明確禁止或已確認不相容的設備，依放寬規則暫定可以；這不是官方許可。請確認指定區域、契約、使用資格及車輛尺寸條件。",
+    "en": "Provisionally usable because no explicit ban or confirmed equipment incompatibility was found. This is not official permission. Check the designated area, contract, eligibility and vehicle dimensions."
+  },
+  "車種・階層・利用資格などの詳細条件は公式案内で確認してください。利用区分が未確認の場合、一時利用や新規契約が可能とは限りません。": {
+    "ja": "車種・階層・利用資格などの詳細条件は公式案内で確認してください。利用区分が未確認の場合、一時利用や新規契約が可能とは限りません。",
+    "zh-Hans": "车型、楼层及使用资格等详细条件请查看官方说明。使用方式未确认时，不代表可以临停或新签合同。",
+    "zh-Hant": "車種、樓層及使用資格等詳細條件請查看官方說明。使用方式未確認時，不代表可以臨停或新簽契約。",
+    "en": "Check the official guidance for vehicle classes, floors and eligibility. Unverified use modes do not imply that short stays or new contracts are available."
+  },
+  "電動キックボード（指定区画・条件あり）": {
+    "ja": "電動キックボード（指定区画・条件あり）",
+    "zh-Hans": "电动滑板车（限指定区域及条件）",
+    "zh-Hant": "電動滑板車（限指定區域及條件）",
+    "en": "Electric scooters (designated areas and conditions apply)"
+  },
+  "学芸大学駅西口第二では特定小型原動機付自転車の一時利用のみ確認済みです。定期利用はできません。": {
+    "ja": "学芸大学駅西口第二では特定小型原動機付自転車の一時利用のみ確認済みです。定期利用はできません。",
+    "zh-Hans": "学艺大学站西口第二仅确认符合特定小型原付类别的电动滑板车可临停，不可定期停车。",
+    "zh-Hant": "學藝大學站西口第二僅確認符合特定小型原付類別的電動滑板車可臨停，不可定期停車。",
+    "en": "At Gakugei-daigaku West No. 2, only short stays for scooters classified as specified small mopeds are confirmed. Permit parking is unavailable."
+  },
+  "桂駅南では電動キックボードは定格出力0.6kW以下に限り、原付区画で受け入れています。": {
+    "ja": "桂駅南では電動キックボードは定格出力0.6kW以下に限り、原付区画で受け入れています。",
+    "zh-Hans": "桂站南仅接受额定功率不超过0.6kW的电动滑板车，须停放在原付区域。",
+    "zh-Hant": "桂站南僅接受額定功率不超過0.6kW的電動滑板車，須停放於原付區域。",
+    "en": "At Katsura Station South, scooters are accepted in the moped area only if rated power does not exceed 0.6 kW."
   }
 }

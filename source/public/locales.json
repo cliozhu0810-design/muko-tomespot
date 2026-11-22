@@ -1372,5 +1372,23 @@
     "zh-Hans": "按地区、车站查找",
     "zh-Hant": "依地區、車站查找",
     "en": "Areas & stations"
+  },
+  "translationPending": {
+    "ja": "この条件の翻訳は準備中です。公式案内で車種・区画・利用条件をご確認ください。",
+    "zh-Hans": "该项说明的翻译正在补充，请通过官方说明确认车型、区域和使用条件。",
+    "zh-Hant": "此項說明的翻譯正在補充，請透過官方說明確認車種、區域及使用條件。",
+    "en": "This condition is awaiting translation. Check vehicle classes, areas and use conditions in the official guidance."
+  },
+  "provisionalAllowed": {
+    "ja": "暫定利用可（公式確認なし）",
+    "zh-Hans": "暂定可以（非官方许可）",
+    "zh-Hant": "暫定可以（非官方許可）",
+    "en": "Provisionally usable (not officially confirmed)"
+  },
+  "commentOriginal": {
+    "ja": "投稿された言語で口コミを表示",
+    "zh-Hans": "查看评论原文",
+    "zh-Hant": "查看評論原文",
+    "en": "Show comment in its original language"
   }
 }

@@ -183,7 +183,15 @@ export function buildFrontend({apiBase,siteUrl,output=path.join(root,'dist')}={}
         body=rewrite(body);
       }
       // Keep reviewed source data readable; compact only the deployed JSON asset.
-      if(rel==='vehicle-data.json') body=JSON.stringify(JSON.parse(body))+'\n';
+      if(rel==='vehicle-data.json') {
+        const data=JSON.parse(body);
+        // Audit-only metadata stays in source control and the local publication ledger.
+        // Keep all user-facing rules, sources, prices and confirmation flags in the asset.
+        for(const row of Object.values(data.reviewedProfiles||{}))for(const profile of [row.motorcycle,...Object.values(row.reviewedCategories||{})])if(profile)
+          for(const key of ['retainedReviewScope','sourceModeStatuses','jointReviewId','jointReviewRelease','unifiedReviewId','admissionReviewed','conclusionType'])delete profile[key];
+        body=JSON.stringify(data)+'\n';
+        if(Buffer.byteLength(body)>=25*1024*1024)throw new Error('vehicle-data.json exceeds the hosting per-asset limit');
+      }
       if(rel==='app.js') body=body.replace(/fetch\('\/api\/admin\/session'\)[\s\S]*$/,'');
       if(rel==='comments.js') body=body.replaceAll("fetch('/api/comments", "fetch(tomespotApi('/api/comments")
         .replace("+offset);", "+offset));")

@@ -268,7 +268,10 @@ test('static build preserves data and all local HTML links resolve on Pages',()=
     for(const page of coverage.pages){const html=fs.readFileSync(path.join(out,page.path+'.html'),'utf8');for(const [,id] of html.matchAll(/href="\/parking\/([^"/]+)\.html(?:[?#][^"]*)?"/g))expectedFacilities.add(id);}
     assert.deepEqual(new Set(fs.readdirSync(path.join(out,'parking')).map(f=>f.replace(/\.html$/,''))),expectedFacilities);
     assert.equal(fs.readFileSync(path.join(out,'parking.json'),'utf8'),fs.readFileSync(path.join(root,'source/public/parking.json'),'utf8'));
-    assert.deepEqual(JSON.parse(fs.readFileSync(path.join(out,'vehicle-data.json'))),JSON.parse(fs.readFileSync(path.join(root,'source/public/vehicle-data.json'))));
+    const sourceVehicles=JSON.parse(fs.readFileSync(path.join(root,'source/public/vehicle-data.json')));
+    for(const row of Object.values(sourceVehicles.reviewedProfiles||{}))for(const q of [row.motorcycle,...Object.values(row.reviewedCategories||{})])if(q)for(const key of ['retainedReviewScope','sourceModeStatuses','jointReviewId','jointReviewRelease','unifiedReviewId','admissionReviewed','conclusionType'])delete q[key];
+    // Compare compact strings to keep a failing assertion from dumping the full dataset.
+    assert.ok(JSON.stringify(JSON.parse(fs.readFileSync(path.join(out,'vehicle-data.json'))))===JSON.stringify(sourceVehicles),'deployed profiles must retain every field except the listed audit-only metadata');
     assert.ok(fs.statSync(path.join(out,'vehicle-data.json')).size<25*1024*1024);
     assert.equal(fs.existsSync(path.join(out,'verification-directory.html')),false);
     const walk=dir=>fs.readdirSync(dir,{withFileTypes:true}).flatMap(x=>x.isDirectory()?walk(path.join(dir,x.name)):[path.join(dir,x.name)]);
