@@ -36,3 +36,9 @@ test('geographic labels and Taiwan interface terms are consistent',()=>{
  assert.equal(run('TomespotVisitorI18n.stationName({name:"渋谷",romaji:"shibuya"},"en")'),'Shibuya Station（渋谷駅）');
  for(const [key,row] of Object.entries(map.locales)){for(const lang of ['ja','zh-Hans','zh-Hant','en'])assert.ok(row[lang],key);assert.doesNotMatch(row['zh-Hant'],/未覈實|搜索|定期停車|用戶/);}
 });
+
+test('24-hour opening times use localized units in every language',()=>{
+ for(const [lang,expected] of Object.entries({ja:'24時間','zh-Hans':'24小时','zh-Hant':'24小時',en:'24 hours'})){
+  assert.equal(run('locale=lang;dt("24時間")',{lang}),expected);
+ }
+});
